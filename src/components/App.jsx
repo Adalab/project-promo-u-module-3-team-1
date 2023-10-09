@@ -1,38 +1,83 @@
 // Fichero src/components/App.jsx
 import '../styles/App.scss';
+import cover from '../images/cover.jpeg';
+import cover2 from '../images/cover_2.jpeg';
+import logo from '../images/logo-adalab.png';
+import user from '../images/user.jpeg';
+import { useState } from 'react';
+
+
 
 function App() {
+  const [name, setName] = useState('');
+  const [slogan, setSlogan] = useState('');
+  const [repo, setRepo] = useState('');
+  const [demo, setDemo] = useState('');
+  const [tecno, setTecno] = useState('');
+  const [desc, setDesc] = useState('');
+  const [autor, setAutor] = useState('');
+  const [job, setJob] = useState('');
+  const handleInput = (ev)=>{
+    ev.preventDefault();
+    const inputId = ev.target.id;
+    if (inputId === 'name') {
+      setName(ev.target.value);
+    }else if (inputId === 'slogan'){
+      setSlogan(ev.target.value);
+    }else if (inputId === 'repo'){
+        setRepo(ev.target.value);
+    }else if (inputId === 'demo'){
+      setDemo(ev.target.value);
+
+    }else if  (inputId === 'tecno'){
+      setTecno(ev.target.value);
+
+    }else if (inputId === 'desc'){
+      setDesc(ev.target.value);
+
+    }else if (inputId === 'autor'){
+      setAutor(ev.target.value);
+
+    }else if (inputId === 'job'){
+      setJob(ev.target.value);
+
+    }
+  }
+    
+  
+ 
   return (
     <div className="container">
       <header className="header">
         <p className="text">Proyectos Molones</p>
+        <img src={logo} alt="" />
       </header>
       <main className="main">
         <section className="preview">
-          <img className="image" src="./images/cover.jpeg" alt="" />
+          <img className="image" src={cover} alt=""  />
 
           <section className="autor">
             <section className="info-project">
-              <p className="subtitle">Personal Project Card</p>
+              <p className="subtitle">{repo || 'Personal Project Card'}</p>
               <hr className="line" />
 
-              <h2 className="title">Elegant Workspace</h2>
-              <p className="slogan">Diseños Exclusivos</p>
+              <h2 className="title">{name || 'Elegant Workspace'}</h2>
+              <p className="slogan">{slogan || 'Diseños Exclusivos'}</p>
               <p className="desc">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Libero, delectus? Voluptates at hic aliquam porro ad suscipit
+               {desc ||  `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Libero, delectus Voluptates at hic aliquam porro ad suscipit
                 harum laboriosam saepe earum doloribus aperiam, ullam culpa
-                accusantium placeat odit corrupti ipsum!
+                accusantium placeat odit corrupti ipsum`}
               </p>
               <section className="technologies">
-                <p className="text">React JS, MongoDB</p>
+                <p className="text">{tecno || 'React JS, MongoDB'}</p>
               </section>
             </section>
 
             <section className="info-autor">
-              <img className="image" src="./images/user.jpeg" alt="" />
-              <p className="job">Full Stack Developer</p>
-              <p className="name">Emmelie Björklund</p>
+              <img className="image" src={user}alt="" />
+              <p className="job">{job || 'Full Stack Developer'}</p>
+              <p className="name">{autor || 'Emmelie Björklund'}</p>
             </section>
           </section>
         </section>
@@ -52,6 +97,8 @@ function App() {
               placeholder="Nombre del proyecto"
               name="name"
               id="name"
+onChange = {handleInput}
+
             />
             <input
               className="input"
@@ -59,6 +106,7 @@ function App() {
               name="slogan"
               id="slogan"
               placeholder="Slogan"
+onChange = {handleInput}
             />
             <input
               className="input"
@@ -66,6 +114,8 @@ function App() {
               name="repo"
               id="repo"
               placeholder="Repo"
+onChange = {handleInput}
+
             />
             <input
               className="input"
@@ -73,6 +123,7 @@ function App() {
               placeholder="Demo"
               name="demo"
               id="demo"
+onChange = {handleInput}
             />
             <input
               className="input"
@@ -80,6 +131,7 @@ function App() {
               placeholder="Tecnologías"
               name="technologies"
               id="technologies"
+onChange = {handleInput}
             />
             <textarea
               className="textarea"
@@ -87,6 +139,7 @@ function App() {
               placeholder="Descripción"
               name="desc"
               id="desc"
+onChange = {handleInput}
             ></textarea>
           </fieldset>
 
@@ -102,6 +155,7 @@ function App() {
               placeholder="Nombre"
               name="autor"
               id="autor"
+onChange = {handleInput}
             />
             <input
               className="input"
@@ -109,6 +163,7 @@ function App() {
               placeholder="Trabajo"
               name="job"
               id="job"
+              onChange = {handleInput}
             />
           </fieldset>
 
@@ -128,8 +183,13 @@ function App() {
           </section>
         </section>
       </main>
+      <footer>
+
+        <img src={logo} alt="" />
+      </footer>
     </div>
   );
-}
 
+  
+}
 export default App;
