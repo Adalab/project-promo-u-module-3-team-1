@@ -29,7 +29,7 @@ function App() {
     }else if (inputId === 'demo'){
       setDemo(ev.target.value);
 
-    }else if  (inputId === 'tecno'){
+    }else if  (inputId === 'technologies'){
       setTecno(ev.target.value);
 
     }else if (inputId === 'desc'){
@@ -54,7 +54,7 @@ function App() {
       </header>
       <main className="main">
         <section className="preview">
-          <img className="image" src={cover} alt=""  />
+          <img className="image" src={demo || cover} alt=""  />
 
           <section className="autor">
             <section className="info-project">
