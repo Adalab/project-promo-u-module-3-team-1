@@ -8,64 +8,35 @@ import { useState } from 'react';
 
 
 function App() {
-  const [name, setName] = useState('');
-  const [slogan, setSlogan] = useState('');
-  const [repo, setRepo] = useState('');
-  const [demo, setDemo] = useState('');
-  const [tecno, setTecno] = useState('');
-  const [desc, setDesc] = useState('');
-  const [autor, setAutor] = useState('');
-  const [job, setJob] = useState('');
+  const [data, setData]=useState({
+    name:"", 
+    slogan:"", 
+    repo:"",
+    demo:"",
+    tecno:"",
+    desc:"",
+    autor:"",
+    job:"",
+
+  });
+
   let [error, setError] = useState('');
   let regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
 
   const handleInput = (ev) => {
     ev.preventDefault();
-      
+    const inputId = ev.target.id;
     const value = ev.target.value;
     console.log(value);
     // Utiliza una expresión regular para verificar si el valor contiene números
-    if (regex.test(value)) {
-      console.log('letras validas');
-      const inputId = ev.target.id;
-    if (inputId === 'name') {
-      setError('');
-      setName(ev.target.value);
-    } else if (inputId === 'slogan') {
-      setError('');
-      setSlogan(ev.target.value);
-    ///} else if (inputId === 'repo') {
-      //setRepo(ev.target.value);
-    //} else if (inputId === 'demo') {
-      //setDemo(ev.target.value);
-    } else if (inputId === 'technologies') {
-      setError('');
-      setTecno(ev.target.value);
-    } else if (inputId === 'desc') {
-      setError('');
-      setDesc(ev.target.value);
-    } else if (inputId === 'autor') {
+    if (inputId==='autor'||inputId==='job'){
       if (regex.test(value)) {
-      setError('');
-      setAutor(ev.target.value);
-    } else {
-      console.log('error');
-      setError('Este campo no admite números');
-    }
-  }  else if (inputId === 'job') {
-    if (regex.test(value)) {
-      setError('');
-      setJob(ev.target.value);
-    } else {
-      console.log('error');
-      setError('Este campo no admite números');
-      ev.target.value = '';
-    }
-      setJob(ev.target.value);
-    }
-    } else {
-      console.log('error');
-      setError('Este campo no admite números');
+        setData({...data,[inputId]:value})
+        setError('');
+      }else {
+        console.log('error');
+        setError('Este campo no admite números');
+      }
     }
     
     
@@ -84,27 +55,27 @@ function App() {
 
           <section className="autor">
             <section className="info-project">
-              <p className="subtitle">{repo || 'Personal Project Card'}</p>
+              <p className="subtitle">{data.repo || 'Personal Project Card'}</p>
               <hr className="line" />
 
-              <h2 className="title">{name || 'Elegant Workspace'}</h2>
-              <p className="slogan">{slogan || 'Diseños Exclusivos'}</p>
+              <h2 className="title">{data.name || 'Elegant Workspace'}</h2>
+              <p className="slogan">{data.slogan || 'Diseños Exclusivos'}</p>
               <p className="desc">
-                {desc ||
+                {data.desc ||
                   `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Libero, delectus Voluptates at hic aliquam porro ad suscipit
                 harum laboriosam saepe earum doloribus aperiam, ullam culpa
                 accusantium placeat odit corrupti ipsum`}
               </p>
               <section className="technologies">
-                <p className="text">{tecno || 'React JS, MongoDB'}</p>
+                <p className="text">{data.tecno || 'React JS, MongoDB'}</p>
               </section>
             </section>
 
             <section className="info-autor">
               <img className="image" src={user} alt="" />
-              <p className="job">{job || 'Full Stack Developer'}</p>
-              <p className="name">{autor || 'Emmelie Björklund'}</p>
+              <p className="job">{data.job || 'Full Stack Developer'}</p>
+              <p className="name">{data.autor || 'Emmelie Björklund'}</p>
             </section>
           </section>
         </section>
@@ -125,7 +96,7 @@ function App() {
               name="name"
               id="name"
               onChange={handleInput}
-              value={name}
+              value={data.name}
               
             />
             <input
@@ -135,7 +106,7 @@ function App() {
               id="slogan"
               placeholder="Slogan"
               onChange={handleInput}
-              value={slogan}
+              value={data.slogan}
             />
             <input
               className="input"
@@ -144,7 +115,7 @@ function App() {
               id="repo"
               placeholder="Repo"
               onChange={handleInput}
-              value={repo}
+              value={data.repo}
             />
             <input
               className="input"
@@ -153,7 +124,7 @@ function App() {
               name="demo"
               id="demo"
               onChange={handleInput}
-              value={demo}
+              value={data.demo}
             />
             <input
               className="input"
@@ -162,7 +133,7 @@ function App() {
               name="technologies"
               id="technologies"
               onChange={handleInput}
-              value={tecno}
+              value={data.tecno}
             />
             <textarea
               className="textarea"
@@ -171,7 +142,7 @@ function App() {
               name="desc"
               id="desc"
               onChange={handleInput}
-              value={desc}
+              value={data.desc}
             ></textarea>
           </fieldset>
 
@@ -188,7 +159,7 @@ function App() {
               name="autor"
               id="autor"
               onChange={handleInput}
-              value={autor}
+              value={data.autor}
               pattern='/^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/'
             />
             <input
@@ -198,7 +169,7 @@ function App() {
               name="job"
               id="job"
               onChange={handleInput}
-              value={job}
+              value={data.job}
               pattern='/^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/'
             />
             <p>{error}</p>
