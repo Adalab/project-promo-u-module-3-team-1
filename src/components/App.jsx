@@ -13,7 +13,7 @@ function App() {
     slogan:"", 
     repo:"",
     demo:"",
-    tecno:"",
+    technologies:"",
     desc:"",
     autor:"",
     job:"",
@@ -22,20 +22,31 @@ function App() {
 
   let [error, setError] = useState('');
   let regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
-
+  let urlRegex = /^(http|https):\/\/[^ "]+$/;
   const handleInput = (ev) => {
     ev.preventDefault();
     const inputId = ev.target.id;
+    console.log(inputId);
     const value = ev.target.value;
     console.log(value);
-    // Utiliza una expresión regular para verificar si el valor contiene números
-    if (inputId==='autor'||inputId==='job'){
+    if (inputId==='name'||inputId==='slogan'||inputId==='desc'||inputId==='technologies'){
+      setData({...data,[inputId]:value})
+
+    }else if (inputId==='autor'||inputId==='job'){
       if (regex.test(value)) {
         setData({...data,[inputId]:value})
         setError('');
       }else {
         console.log('error');
         setError('Este campo no admite números');
+      }
+    }else if (inputId==='demo'||inputId==='repo'){
+      if (urlRegex.test(value)) {
+        setData({...data,[inputId]:value})
+        setError('');
+      }else {
+        console.log('error');
+        setError('Este campo debe contener una URL válida');
       }
     }
     
@@ -68,7 +79,7 @@ function App() {
                 accusantium placeat odit corrupti ipsum`}
               </p>
               <section className="technologies">
-                <p className="text">{data.tecno || 'React JS, MongoDB'}</p>
+                <p className="text">{data.technologies || 'React JS, MongoDB'}</p>
               </section>
             </section>
 
@@ -116,7 +127,9 @@ function App() {
               placeholder="Repo"
               onChange={handleInput}
               value={data.repo}
+              pattern= {urlRegex}
             />
+       
             <input
               className="input"
               type="text"
@@ -125,7 +138,9 @@ function App() {
               id="demo"
               onChange={handleInput}
               value={data.demo}
+              pattern= {urlRegex}
             />
+            <p>{error}</p>
             <input
               className="input"
               type="text"
@@ -133,7 +148,7 @@ function App() {
               name="technologies"
               id="technologies"
               onChange={handleInput}
-              value={data.tecno}
+              value={data.technologies}
             />
             <textarea
               className="textarea"
@@ -160,7 +175,7 @@ function App() {
               id="autor"
               onChange={handleInput}
               value={data.autor}
-              pattern='/^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/'
+              pattern={regex}
             />
             <input
               className="input"
@@ -170,7 +185,7 @@ function App() {
               id="job"
               onChange={handleInput}
               value={data.job}
-              pattern='/^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/'
+              pattern={regex}
             />
             <p>{error}</p>
           </fieldset>
