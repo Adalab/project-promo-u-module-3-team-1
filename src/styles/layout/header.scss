@@ -1,0 +1,25 @@
+.container {
+    background-color: #3a3650;
+    width: 100vh;
+   
+}
+
+.header {
+    height: 8.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+   
+
+}
+
+.header_div {
+    display: flex;
+   
+}
+
+.header-logo {
+    width: 12.3rem;
+    padding-inline: 2.2rem;
+}

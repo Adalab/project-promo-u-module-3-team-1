@@ -57,8 +57,12 @@ function App() {
   return (
     <div className="container">
       <header className="header">
+        <div className='header_div'>
+
+
         <p className="text">Proyectos Molones</p>
         <img className='header-logo' src={logo} alt="" />
+        </div>
       </header>
       <main className="main">
         <section className="preview">
