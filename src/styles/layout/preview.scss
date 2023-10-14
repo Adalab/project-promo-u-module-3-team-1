@@ -1,10 +1,14 @@
 .main {
   display: flex;
+  flex-direction: column;
   padding-top: 50px;
   height: 80vh;
+  @media all and (min-width: 768px){
+    flex-direction:row;
+  }
 }
 .preview {
-  width: 60%;
+ 
   padding: 20px;
 
   &__cover {

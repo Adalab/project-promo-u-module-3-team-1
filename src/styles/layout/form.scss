@@ -1,32 +1,57 @@
-.main .form {
-  background-color: #302c42;
-  width: 40%;
-}
-
-.main .project,
-.main .autor {
+.form {
+  background: radial-gradient(circle at 50% 50%, $dusk, #211e2e 92%);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border: none;
+  &__title {
+    color: #ffffff;
+    text-align: center;
+  }
+  .fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+    &__legend {
+      padding: 20px;
+      text-align: center;
+      color: white;
+      &--subtitle {
+        padding-bottom: 10px;
+      }
+      &--line {
+        width: 100%;
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.75),
+          rgba(255, 255, 255, 0)
+        );
+      }
+    }
+    .input,
+    .textarea {
+      background-color: #302c42;
+      border-color: white;
+      border-radius: 40px;
+      height: 42.72px;
+      color: #ffffff;
+      padding-left: 15px;
+      padding-top: 5px;
+    }
+  }
+  button{
+
+  }
 }
 
-.main .input,
-.textarea {
-  background-color: #302c42;
-  border-color: white;
-  border-radius: 40px;
-  height: 42.72px;
-  color: #ffffff;
-  padding-left: 15px;
-  padding-top: 5px;
-}
 .main .input::placeholder,
 .textarea::placeholder {
   color: #ffffff;
 }
 
-.main .textarea {
+.textarea {
   height: 110px;
 }
 
@@ -34,8 +59,8 @@
   text-align: center;
 }
 
-.main .btn,
-.main .btn-large {
+.btn__,
+.create__box--btn {
   width: 160px;
   margin-top: 10px;
   color: white;
@@ -62,32 +87,6 @@
 .btn-color-dark {
   background-color: black;
   color: white;
-}
-.main .title {
-  color: #ffffff;
-  text-align: center;
-}
-
-.main .ask-info {
-  padding: 20px;
-  text-align: center;
-  color: white;
-}
-
-.main .ask-info .subtitle {
-  padding-bottom: 10px;
-}
-
-.main .ask-info .line {
-  width: 100%;
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.75),
-    rgba(255, 255, 255, 0)
-  );
 }
 .card {
   color: white;

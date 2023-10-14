@@ -6,18 +6,16 @@ import logo from '../images/logo-adalab.png';
 import user from '../images/user.jpeg';
 import { useState } from 'react';
 
-
 function App() {
-  const [data, setData]=useState({
-    name:"", 
-    slogan:"", 
-    repo:"",
-    demo:"",
-    technologies:"",
-    desc:"",
-    autor:"",
-    job:"",
-
+  const [data, setData] = useState({
+    name: '',
+    slogan: '',
+    repo: '',
+    demo: '',
+    technologies: '',
+    desc: '',
+    autor: '',
+    job: '',
   });
 
   let [error, setError] = useState('');
@@ -29,163 +27,169 @@ function App() {
     console.log(inputId);
     const value = ev.target.value;
     console.log(value);
-    if (inputId==='name'||inputId==='slogan'||inputId==='desc'||inputId==='technologies'){
-      setData({...data,[inputId]:value})
-
-    }else if (inputId==='autor'||inputId==='job'){
+    if (
+      inputId === 'name' ||
+      inputId === 'slogan' ||
+      inputId === 'desc' ||
+      inputId === 'technologies'
+    ) {
+      setData({ ...data, [inputId]: value });
+    } else if (inputId === 'autor' || inputId === 'job') {
       if (regex.test(value)) {
-        setData({...data,[inputId]:value})
+        setData({ ...data, [inputId]: value });
         setError('');
-      }else {
+      } else {
         console.log('error');
         setError('Este campo no admite números');
       }
-    }else if (inputId==='demo'||inputId==='repo'){
+    } else if (inputId === 'demo' || inputId === 'repo') {
       if (urlRegex.test(value)) {
-        setData({...data,[inputId]:value})
+        setData({ ...data, [inputId]: value });
         setError('');
-      }else {
+      } else {
         console.log('error');
         setError('Este campo debe contener una URL válida');
       }
     }
-    
-    
-    
   };
 
   return (
-    <div className="container">
-      <header className="header">
-          <i className="header__icon fa-solid fa-laptop-code"></i>
-          <p className="header__text">Proyectos Molones</p>
-          <img className='header__logo' src={logo} alt="" />
+    <div className='container'>
+      <header className='header'>
+        <i className='header__icon fa-solid fa-laptop-code'></i>
+        <p className='header__text'>Proyectos Molones</p>
+        <img className='header__logo' src={logo} alt='' />
       </header>
-      <main className="main">
-        <section className="preview">
-          <img className="image preview__cover" src={cover} alt="" />
+      <main className='main'>
+        <section className='preview'>
+          <img className='image preview__cover' src={cover} alt='' />
 
-          <article className="preview__autor">
-            <section className="preview__autor--project">
-              <p className="line-word">{data.repo || 'Personal Project Card'}</p>
-              <hr className="line" />
+          <article className='preview__autor'>
+            <section className='preview__autor--project'>
+              <p className='line-word'>
+                {data.repo || 'Personal Project Card'}
+              </p>
+              <hr className='line' />
 
-              <h2 className="title">{data.name || 'Elegant Workspace'}</h2>
-              <p className="slogan">{data.slogan || 'Diseños Exclusivos'}</p>
-              <p className="desc">
+              <h2 className='title'>{data.name || 'Elegant Workspace'}</h2>
+              <p className='slogan'>{data.slogan || 'Diseños Exclusivos'}</p>
+              <p className='desc'>
                 {data.desc ||
                   `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Libero, delectus Voluptates at hic aliquam porro ad suscipit
                 harum laboriosam saepe earum doloribus aperiam, ullam culpa
                 accusantium placeat odit corrupti ipsum`}
               </p>
-              <footer className="technologies" >
-                <p className="text technologies__p">{data.technologies || 'React JS, MongoDB'}</p>
+              <footer className='technologies'>
+                <p className='text technologies__p'>
+                  {data.technologies || 'React JS, MongoDB'}
+                </p>
               </footer>
             </section>
 
-            <figure className="preview__autor--figure">
-              <img className="image" src={user} alt="" />
+            <figure className='preview__autor--figure'>
+              <img className='image' src={user} alt='' />
               <figcaption>
-                <h3 className="job">{data.job || 'Full Stack Developer'}</h3>
-                <h2 className="name">{data.autor || 'Emmelie Björklund'}</h2>
+                <h3 className='job'>{data.job || 'Full Stack Developer'}</h3>
+                <h2 className='name'>{data.autor || 'Emmelie Björklund'}</h2>
               </figcaption>
             </figure>
           </article>
         </section>
 
-        <section className="form">
-          <h2 className="title">Información</h2>
+        <form className='form'>
+          <h2 className='form__title'>Información</h2>
 
-          <section className="ask-info">
-            <p className="subtitle">Cuéntanos sobre el proyecto</p>
-            <hr className="line" />
-          </section>
-
-          <fieldset className="project">
+          <fieldset className='fieldset'>
+            <legend className='fieldset__legend'>
+              <p className='fieldset__legend--subtitle'>
+                Cuéntanos sobre el proyecto
+              </p>
+              <hr className='fieldset__legend--line' />
+            </legend>
             <input
-              className="input"
-              type="text"
-              placeholder="Nombre del proyecto"
-              name="name"
-              id="name"
+              className='input'
+              type='text'
+              placeholder='Nombre del proyecto'
+              name='name'
+              id='name'
               onChange={handleInput}
               value={data.name}
-              
             />
             <input
-              className="input"
-              type="text"
-              name="slogan"
-              id="slogan"
-              placeholder="Slogan"
+              className='input'
+              type='text'
+              name='slogan'
+              id='slogan'
+              placeholder='Slogan'
               onChange={handleInput}
               value={data.slogan}
             />
             <input
-              className="input"
-              type="text"
-              name="repo"
-              id="repo"
-              placeholder="Repo"
+              className='input'
+              type='text'
+              name='repo'
+              id='repo'
+              placeholder='Repo'
               onChange={handleInput}
               value={data.repo}
-              pattern= {urlRegex}
+              pattern={urlRegex}
             />
-       
+
             <input
-              className="input"
-              type="text"
-              placeholder="Demo"
-              name="demo"
-              id="demo"
+              className='input'
+              type='text'
+              placeholder='Demo'
+              name='demo'
+              id='demo'
               onChange={handleInput}
               value={data.demo}
-              pattern= {urlRegex}
+              pattern={urlRegex}
             />
             <p>{error}</p>
             <input
-              className="input"
-              type="text"
-              placeholder="Tecnologías"
-              name="technologies"
-              id="technologies"
+              className='input'
+              type='text'
+              placeholder='Tecnologías'
+              name='technologies'
+              id='technologies'
               onChange={handleInput}
               value={data.technologies}
             />
             <textarea
-              className="textarea"
-              type="text"
-              placeholder="Descripción"
-              name="desc"
-              id="desc"
+              className='textarea'
+              type='text'
+              placeholder='Descripción'
+              name='desc'
+              id='desc'
               onChange={handleInput}
               value={data.desc}
             ></textarea>
           </fieldset>
 
-          <section className="ask-info">
-            <p className="subtitle">Cuéntanos sobre la autora</p>
-            <hr className="line" />
-          </section>
-
-          <fieldset className="autor">
+          <fieldset className='fieldset'>
+            <legend className='fieldset__legend'>
+              <p className='fieldset__legend--subtitle'>
+                Cuéntanos sobre la autora
+              </p>
+              <hr className='fieldset__legend--line' />
+            </legend>
             <input
-              className="input"
-              type="text"
-              placeholder="Nombre"
-              name="autor"
-              id="autor"
+              className='input'
+              type='text'
+              placeholder='Nombre'
+              name='autor'
+              id='autor'
               onChange={handleInput}
               value={data.autor}
               pattern={regex}
             />
             <input
-              className="input"
-              type="text"
-              placeholder="Trabajo"
-              name="job"
-              id="job"
+              className='input'
+              type='text'
+              placeholder='Trabajo'
+              name='job'
+              id='job'
               onChange={handleInput}
               value={data.job}
               pattern={regex}
@@ -193,24 +197,24 @@ function App() {
             <p>{error}</p>
           </fieldset>
 
-          <section className="buttons-img">
-            <button className="btn">Subir foto de proyecto</button>
-            <button className="btn">Subir foto de autora</button>
+          <section className='btn'>
+            <button className='btn__project'>Subir foto de proyecto</button>
+            <button className='btn__author'>Subir foto de autora</button>
           </section>
-          <section className="buttons-img">
-            <button className="btn-large">Crear Tarjeta</button>
+          <section className='create__box'>
+            <button className='create__box--btn'>Crear Tarjeta</button>
           </section>
 
-          <section className="card">
-            <span className=""> La tarjeta ha sido creada: </span>
-            <a href="" className="" target="_blank" rel="noreferrer">
+          <section className='card'>
+            <span className=''> La tarjeta ha sido creada: </span>
+            <a href='' className='' target='_blank' rel='noreferrer'>
               {' '}
             </a>
           </section>
-        </section>
+        </form>
       </main>
       <footer>
-        <img src={logo} alt="" />
+        <img src={logo} alt='' />
       </footer>
     </div>
   );
