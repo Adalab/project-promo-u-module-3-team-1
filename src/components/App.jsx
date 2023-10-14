@@ -63,11 +63,11 @@ function App() {
       </header>
       <main className="main">
         <section className="preview">
-          <img className="image" src={cover} alt="" />
+          <img className="image preview__cover" src={cover} alt="" />
 
-          <section className="autor">
-            <section className="info-project">
-              <p className="subtitle">{data.repo || 'Personal Project Card'}</p>
+          <article className="preview__autor">
+            <section className="preview__autor--project">
+              <p className="line-word">{data.repo || 'Personal Project Card'}</p>
               <hr className="line" />
 
               <h2 className="title">{data.name || 'Elegant Workspace'}</h2>
@@ -79,17 +79,19 @@ function App() {
                 harum laboriosam saepe earum doloribus aperiam, ullam culpa
                 accusantium placeat odit corrupti ipsum`}
               </p>
-              <section className="technologies">
-                <p className="text">{data.technologies || 'React JS, MongoDB'}</p>
-              </section>
+              <footer className="technologies" >
+                <p className="text technologies__p">{data.technologies || 'React JS, MongoDB'}</p>
+              </footer>
             </section>
 
-            <section className="info-autor">
+            <figure className="preview__autor--figure">
               <img className="image" src={user} alt="" />
-              <p className="job">{data.job || 'Full Stack Developer'}</p>
-              <p className="name">{data.autor || 'Emmelie Björklund'}</p>
-            </section>
-          </section>
+              <figcaption>
+                <h3 className="job">{data.job || 'Full Stack Developer'}</h3>
+                <h2 className="name">{data.autor || 'Emmelie Björklund'}</h2>
+              </figcaption>
+            </figure>
+          </article>
         </section>
 
         <section className="form">
