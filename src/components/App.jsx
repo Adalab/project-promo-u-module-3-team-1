@@ -1,5 +1,5 @@
 // Fichero src/components/App.jsx
-import '../styles/App.scss';
+import '../styles/index.scss';
 import cover from '../images/cover.jpeg';
 //import cover2 from '../images/cover_2.jpeg';
 import logo from '../images/logo-adalab.png';
@@ -57,12 +57,9 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <div className='header_div'>
-
-
-        <p className="text">Proyectos Molones</p>
-        <img className='header-logo' src={logo} alt="" />
-        </div>
+          <i className="header__icon fa-solid fa-laptop-code"></i>
+          <p className="header__text">Proyectos Molones</p>
+          <img className='header__logo' src={logo} alt="" />
       </header>
       <main className="main">
         <section className="preview">

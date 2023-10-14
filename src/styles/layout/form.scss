@@ -1,0 +1,65 @@
+.main .form {
+    background-color: #302c42;
+    width: 40%;
+  }
+  
+  .main .project,
+  .main .autor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+  }
+  
+  .main .input,
+  .textarea {
+    background-color: #302c42;
+    border-color: white;
+    border-radius: 40px;
+    height: 42.72px;
+    color: #ffffff;
+    padding-left: 15px;
+    padding-top: 5px;
+  }
+  .main .input::placeholder,
+  .textarea::placeholder {
+    color: #ffffff;
+  }
+  
+  .main .textarea {
+    height: 110px;
+  }
+  
+  .main .buttons-img {
+    text-align: center;
+  }
+  
+  .main .btn,
+  .main .btn-large {
+    width: 160px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    border: none;
+  
+    height: 43px;
+    background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
+    border-radius: 40px;
+  }
+  
+  .main .btn-large {
+    width: 200px;
+    border: solid 2px white;
+  }
+    
+  .btn-color {
+    border-radius: 20px;
+    width: 85px;
+    height: 30px;
+    font-weight: bold;
+  }
+  
+  .btn-color-dark {
+    background-color: black;
+    color: white;
+  }

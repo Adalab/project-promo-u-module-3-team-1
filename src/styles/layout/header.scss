@@ -1,25 +1,22 @@
-.container {
-    background-color: #3a3650;
-    width: 100vh;
-   
-}
 
 .header {
-    height: 8.5rem;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-   
-
-}
-
-.header_div {
-    display: flex;
-   
-}
-
-.header-logo {
-    width: 12.3rem;
-    padding-inline: 2.2rem;
+    justify-content: space-around;
+    height: 10vh;
+    width: 100%;
+    &__icon{
+        color:$white;
+        font-size: 3.1rem;
+        padding-left: 2.6rem;
+    }
+    &__text{
+        @include textStyle($fontPoppins, 300, 1.4rem,  $white-50);
+        width: 13.9rem;
+        height: 2.3rem;
+    }
+    &__logo{
+        width: 12.3rem;
+        padding-inline: 2.2rem;
+    }
 }
