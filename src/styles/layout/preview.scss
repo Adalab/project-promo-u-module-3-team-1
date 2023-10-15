@@ -37,14 +37,20 @@
 
     &--project {
       width: 60%;
+      display: flex;
+      flex-direction: column;
       .line-word {
         font-size: 0.8rem;
         text-align: center;
+        align-self: center;
         margin: 0;
-        transform: translateY(70%);
+        transform: translateY(100%);
+        width: 11rem;
+        background-color: $white;
         
         @media all and (min-width: 1024px){
         font-size: 1rem;
+        transform: translateY(85%)
       }
       }
       .line {
