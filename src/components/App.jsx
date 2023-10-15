@@ -5,6 +5,7 @@ import cover from '../images/cover.jpeg';
 import logo from '../images/logo-adalab.png';
 import user from '../images/user.jpeg';
 import { useState } from 'react';
+import callToApi from '../services/api';
 
 function App() {
   const [data, setData] = useState({
@@ -57,8 +58,10 @@ function App() {
     <div className='container'>
       <header>
         <div className='header'>
-        <i className='header__icon fa-solid fa-laptop-code'></i>
-        <p className='header__text'>Proyectos Molones</p>
+          <section className='header__section'>
+            <i className='header__section--icon fa-solid fa-laptop-code'></i>
+            <p className='header__section--text'>Proyectos Molones</p>
+        </section>
         <img className='header__logo' src={logo} alt='' />
         </div>
         <div className= 'header__presentation'>
@@ -89,8 +92,10 @@ function App() {
     
               <p className='technologies'>
                 {data.technologies || 'React JS, MongoDB'}
+                <a href={data.demo} target="_blank"rel='noreferrer'><i className="globe fa-solid fa-globe"></i></a>
+                <a href={data.repo} target="_blank"rel='noreferrer'><i className="github fa-brands fa-github"></i></a>
               </p>
-          
+              
             </section>
 
             <figure className='preview__autor--figure'>
@@ -212,15 +217,15 @@ function App() {
           </section>
 
           <section className='card'>
-            <span className=''> La tarjeta ha sido creada: </span>
+             {/* <span className=''> La tarjeta ha sido creada: </span> */}
             <a href='' className='' target='_blank' rel='noreferrer'>
               {' '}
             </a>
           </section>
         </form>
       </main>
-      <footer>
-        <img src={logo} alt='' />
+      <footer className='footer'>
+        <img className='footer__logo' src={logo} alt='' />
       </footer>
     </div>
   );
