@@ -55,10 +55,17 @@ function App() {
 
   return (
     <div className='container'>
-      <header className='header'>
+      <header>
+        <div className='header'>
         <i className='header__icon fa-solid fa-laptop-code'></i>
         <p className='header__text'>Proyectos Molones</p>
         <img className='header__logo' src={logo} alt='' />
+        </div>
+        <div className= 'header__presentation'>
+          <h1 className= 'header__presentation--h1'>Proyectos Molones</h1>
+          <p className= 'header__presentation--p'>Escaparate en línea para recoger ideas a través de la tecnología.</p>
+          <button className= 'header__presentation--btn'>Ver proyectos</button>
+        </div>
       </header>
       <main className='main'>
         <section className='preview'>
@@ -77,14 +84,13 @@ function App() {
                 {data.desc ||
                   `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Libero, delectus Voluptates at hic aliquam porro ad suscipit
-                harum laboriosam saepe earum doloribus aperiam, ullam culpa
-                accusantium placeat odit corrupti ipsum`}
+                harum laboriosam saepe earum `}
               </p>
-              <footer className='technologies'>
-                <p className='text technologies__p'>
-                  {data.technologies || 'React JS, MongoDB'}
-                </p>
-              </footer>
+    
+              <p className='technologies'>
+                {data.technologies || 'React JS, MongoDB'}
+              </p>
+          
             </section>
 
             <figure className='preview__autor--figure'>

@@ -41,9 +41,6 @@
       padding-top: 5px;
     }
   }
-  button{
-
-  }
 }
 
 .main .input::placeholder,
@@ -58,36 +55,30 @@
 .main .buttons-img {
   text-align: center;
 }
-
-.btn__,
+.btn{
+  display: flex;
+  gap: 0.6rem;
+}
+.btn__project, .btn__author,
 .create__box--btn {
   width: 160px;
+  font-weight: 700;
   margin-top: 10px;
   color: white;
   text-align: center;
   border: none;
-
   height: 43px;
   background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
   border-radius: 40px;
 }
-
-.main .btn-large {
-  width: 200px;
-  border: solid 2px white;
+.create__box{
+  @include centerTotal;
+  &--btn {
+    width: 200px;
+    border: solid 2px white;
+    }
 }
 
-.btn-color {
-  border-radius: 20px;
-  width: 85px;
-  height: 30px;
-  font-weight: bold;
-}
-
-.btn-color-dark {
-  background-color: black;
-  color: white;
-}
 .card {
   color: white;
   text-align: center;
