@@ -138,7 +138,7 @@ function App() {
             />
             <input
               className='input'
-              type='text'
+              type='text'//url
               name='repo'
               id='repo'
               placeholder='Repositorio'
