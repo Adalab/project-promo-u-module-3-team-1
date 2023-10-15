@@ -1,10 +1,14 @@
 .form {
   width: 80%;
-  background: radial-gradient(circle at 50% 50%, $dusk, #211e2e 92%);
+  background: radial-gradient($dusk, #211e2e 92%);
   display: flex;
   flex-direction: column;
   text-align: center;
   margin: auto;
+  @media all and (min-width: 1024px){
+    width: 38.47%;
+    justify-content: space-around;
+  }
   &__title {
     color: $white;
     text-align: center;
@@ -19,7 +23,7 @@
     &__legend {
       text-align: center;
       font-size: 1.7rem;
-      color: white;
+      color: $white;
       &--subtitle {
         padding-bottom: 10px;
       }
@@ -35,26 +39,28 @@
         );
       }
     }
-    .input,
-    .textarea {
-      background-color: #302c42;
-      border-color: white;
-      border-radius: 40px;
+    .input, .textarea  {
       height: 42.72px;
-      color: #ffffff;
+      color: $white;
       padding-left: 15px;
       padding-top: 5px;
+      background-color: transparent;
+      border-color: $white;
+      border-radius: 40px;
+    }
+    .textarea {
+      height: 110px;
     }
   }
 }
 
 .main .input::placeholder,
 .textarea::placeholder {
-  color: #ffffff;
+  @include textStyle($fontMontserrat, 300, 1.4rem,  $white);
+  
 }
-
-.textarea {
-  height: 110px;
+.textarea::placeholder{
+  padding-top: 1.5rem;
 }
 
 .main .buttons-img {
@@ -63,24 +69,29 @@
 .btn{
   display: flex;
   gap: 0.6rem;
+  justify-content: center;
+  
+ 
 }
 .btn__project, .btn__author,
 .create__box--btn {
   width: 160px;
   font-weight: 700;
   margin-top: 10px;
-  color: white;
+  color: $white;
   text-align: center;
   border: none;
   height: 43px;
   background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
   border-radius: 40px;
+  @include textStyle($fontMontserrat, 700, 1.4rem,  $white);
+  
 }
 .create__box{
   @include centerTotal;
   &--btn {
     width: 200px;
-    border: solid 2px white;
+    border: solid 2px $white;
     }
 }
 

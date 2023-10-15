@@ -141,7 +141,7 @@ function App() {
               type='text'
               name='repo'
               id='repo'
-              placeholder='Repo'
+              placeholder='Repositorio'
               onChange={handleInput}
               value={data.repo}
               pattern={urlRegex}
