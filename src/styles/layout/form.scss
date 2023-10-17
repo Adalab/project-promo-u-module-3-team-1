@@ -96,11 +96,14 @@
 }
 
 .card {
-  color: white;
+  color: $white;
   text-align: center;
   padding: 20px;
 }
 
 .hidden {
   display: none;
+}
+.error{
+@include textStyle ($fontMontserrat, 700, 1.4rem, $red);
 }

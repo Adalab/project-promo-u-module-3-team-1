@@ -20,11 +20,13 @@ function App() {
   });
 
   let [error, setError] = useState('');
+  let [errorUrl, setErrorUrl] = useState('');
   let regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
-  let urlRegex = /^(http|https):\/\/[^ "]+$/;
-  const handleInput = (ev) => {
+ 
+  
+   const handleInput = (ev) => { 
     ev.preventDefault();
-    const inputId = ev.target.id;
+  const inputId = ev.target.id;
     console.log(inputId);
     const value = ev.target.value;
     console.log(value);
@@ -32,27 +34,47 @@ function App() {
       inputId === 'name' ||
       inputId === 'slogan' ||
       inputId === 'desc' ||
-      inputId === 'technologies'
-    ) {
+      inputId === 'technologies'||
+      inputId === 'demo'||
+      inputId === 'repo'
+    ){ 
       setData({ ...data, [inputId]: value });
-    } else if (inputId === 'autor' || inputId === 'job') {
+    }else if (inputId === 'autor' || inputId === 'job') {
       if (regex.test(value)) {
-        setData({ ...data, [inputId]: value });
-        setError('');
-      } else {
-        console.log('error');
-        setError('Este campo no admite números');
-      }
-    } else if (inputId === 'demo' || inputId === 'repo') {
-      if (urlRegex.test(value)) {
-        setData({ ...data, [inputId]: value });
-        setError('');
-      } else {
-        console.log('error');
-        setError('Este campo debe contener una URL válida');
-      }
+      setData({ ...data, [inputId]: value });
+      setError('');
+    } else {
+      console.log('error');
+      setError('*Este campo debe contener una URL válida')
     }
-  };
+   }
+  }
+
+  const handleCreateBtn = () =>{
+      if (validateUrl()){
+        callToApi(data)
+        .then((response) => {
+          // Cuando responde la API podemos limpiar los datos aquí
+          const result = {
+           
+          };
+          return result;
+        });  
+      }
+  }
+
+const validateUrl = () =>{
+  let urlRegex = /^(http|https):\/\/[^ "]+$/;
+   if (urlRegex.test(data.demo) && urlRegex.test(data.repo)) {
+      setErrorUrl('');
+      return true;
+    } else {
+      console.log('error');
+      setErrorUrl(<i className="fa-solid fa-skull-crossbones">*Este campo debe contener una URL válida</i>);
+      return false;
+    }
+
+ }
 
   return (
     <div className='container'>
@@ -76,11 +98,8 @@ function App() {
 
           <article className='preview__autor'>
             <section className='preview__autor--project'>
-              <p className='line-word'>
-                {data.repo || 'Personal Project Card'}
-              </p>
+              <p className='line-word'>Personal Project Card</p>
               <hr className='line' />
-
               <h2 className='title'>{data.name || 'Elegant Workspace'}</h2>
               <p className='slogan'>{data.slogan || 'Diseños Exclusivos'}</p>
               <p className='desc'>
@@ -144,7 +163,6 @@ function App() {
               placeholder='Repositorio'
               onChange={handleInput}
               value={data.repo}
-              pattern={urlRegex}
             />
 
             <input
@@ -155,9 +173,8 @@ function App() {
               id='demo'
               onChange={handleInput}
               value={data.demo}
-              pattern={urlRegex}
             />
-            <p>{error}</p>
+            <p className='error'>{errorUrl}</p>
             <input
               className='input'
               type='text'
@@ -205,7 +222,7 @@ function App() {
               value={data.job}
               pattern={regex}
             />
-            <p>{error}</p>
+            <p className='error'>{error}</p>
           </fieldset>
 
           <section className='btn'>
@@ -213,7 +230,7 @@ function App() {
             <button className='btn__author'>Subir foto de autora</button>
           </section>
           <section className='create__box'>
-            <button className='create__box--btn'>Crear Tarjeta</button>
+            <button className='create__box--btn' onClick={handleCreateBtn}>Crear Tarjeta </button>
           </section>
 
           <section className='card'>
