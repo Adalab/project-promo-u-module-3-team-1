@@ -5,7 +5,7 @@ import cover from '../images/cover.jpeg';
 import logo from '../images/logo-adalab.png';
 import user from '../images/user.jpeg';
 import { useState } from 'react';
-import callToApi from '../services/api';
+//import callToApi from '../services/api';
 
 function App() {
   const [data, setData] = useState({
@@ -17,19 +17,21 @@ function App() {
     desc: '',
     autor: '',
     job: '',
-  });
+    image:'https://placehold.co/600x400',
+    photo:'https://placehold.co/600x400',
 
-  let [error, setError] = useState('');
-  let [errorUrl, setErrorUrl] = useState('');
-  let regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
+  });
+  const [cardUrl, setCardUrl] = useState('');
+  const [error, setError] = useState('');
+  const [errorUrl, setErrorUrl] = useState('');
+  const regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
  
   
    const handleInput = (ev) => { 
     ev.preventDefault();
-  const inputId = ev.target.id;
-    console.log(inputId);
+    const inputId = ev.target.id
     const value = ev.target.value;
-    console.log(value);
+
     if (
       inputId === 'name' ||
       inputId === 'slogan' ||
@@ -51,29 +53,39 @@ function App() {
   }
 
   const handleCreateBtn = () =>{
-      if (validateUrl()){
-        callToApi(data)
-        .then((response) => {
-          // Cuando responde la API podemos limpiar los datos aquí
-          const result = {
-           
-          };
-          return result;
-        });  
-      }
-  }
+     validateUrl();
+      fetch('https://dev.adalab.es/api/projectCard', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Solicitud POST exitosa:', data);
+        setCardUrl(data.cardURL)
+      })
+      .catch((error) => {
+        console.error('*Error al realizar la solicitud POST:', error);
+      });
+    };
 
 const validateUrl = () =>{
-  let urlRegex = /^(http|https):\/\/[^ "]+$/;
-   if (urlRegex.test(data.demo) && urlRegex.test(data.repo)) {
-      setErrorUrl('');
-      return true;
-    } else {
-      console.log('error');
-      setErrorUrl(<i className="fa-solid fa-skull-crossbones">*Este campo debe contener una URL válida</i>);
-      return false;
-    }
+let urlRegex = /^(http|https):\/\/[^ "]+$/;
+  if (urlRegex.test(data.demo) && urlRegex.test(data.repo)) {
+    setErrorUrl('');
+    return true;
+  } else {
+    console.log('error');
+    setErrorUrl('*Este campo debe contener una URL válida');
+    return false;
+  }
 
+ }
+
+ const handleForm = (ev) =>{
+  ev.preventDefault();
  }
 
   return (
@@ -127,7 +139,7 @@ const validateUrl = () =>{
           </article>
         </section>
 
-        <form className='form'>
+        <form className='form' onSubmit={handleForm}>
           <h2 className='form__title'>Información</h2>
 
           <fieldset className='fieldset'>
@@ -210,7 +222,6 @@ const validateUrl = () =>{
               id='autor'
               onChange={handleInput}
               value={data.autor}
-              pattern={regex}
             />
             <input
               className='input'
@@ -220,7 +231,6 @@ const validateUrl = () =>{
               id='job'
               onChange={handleInput}
               value={data.job}
-              pattern={regex}
             />
             <p className='error'>{error}</p>
           </fieldset>
@@ -234,9 +244,9 @@ const validateUrl = () =>{
           </section>
 
           <section className='card'>
-             {/* <span className=''> La tarjeta ha sido creada: </span> */}
-            <a href='' className='' target='_blank' rel='noreferrer'>
-              {' '}
+             { <span className=''> La tarjeta ha sido creada: </span> }
+            <a href={cardUrl} className='' target='_blank' rel='noreferrer'>
+              {cardUrl}
             </a>
           </section>
         </form>
