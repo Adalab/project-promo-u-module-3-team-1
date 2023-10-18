@@ -5,7 +5,7 @@ import cover from '../images/cover.jpeg';
 import logo from '../images/logo-adalab.png';
 import user from '../images/user.jpeg';
 import { useState } from 'react';
-//import callToApi from '../services/api';
+import callToApi from '../services/api';
 
 function App() {
   const [data, setData] = useState({
@@ -24,6 +24,7 @@ function App() {
   const [cardUrl, setCardUrl] = useState('');
   const [error, setError] = useState('');
   const [errorUrl, setErrorUrl] = useState('');
+  const [showUrl, setShowUrl] = useState(false);
   const regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
  
   
@@ -54,21 +55,26 @@ function App() {
 
   const handleCreateBtn = () =>{
      validateUrl();
-      fetch('https://dev.adalab.es/api/projectCard', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Solicitud POST exitosa:', data);
-        setCardUrl(data.cardURL)
-      })
-      .catch((error) => {
-        console.error('*Error al realizar la solicitud POST:', error);
-      });
+     callToApi(data).then((response) => {
+      setCardUrl(response);
+      if(response !== undefined) {
+         setShowUrl(true);
+         setData({name: '',
+         slogan: '',
+         repo: '',
+         demo: '',
+         technologies: '',
+         desc: '',
+         autor: '',
+         job: '',
+         image:'https://placehold.co/600x400',
+         photo:'https://placehold.co/600x400',});
+         setError('');
+         setErrorUrl('');
+      }
+    
+    })
+
     };
 
 const validateUrl = () =>{
@@ -243,7 +249,7 @@ let urlRegex = /^(http|https):\/\/[^ "]+$/;
             <button className='create__box--btn' onClick={handleCreateBtn}>Crear Tarjeta </button>
           </section>
 
-          <section className='card'>
+          <section className={`card ${showUrl ? 'show' : 'hidden'}`}>
              { <span className=''> La tarjeta ha sido creada: </span> }
             <a href={cardUrl} className='' target='_blank' rel='noreferrer'>
               {cardUrl}

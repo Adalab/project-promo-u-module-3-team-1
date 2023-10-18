@@ -107,3 +107,8 @@
 .error{
 @include textStyle ($fontMontserrat, 700, 1.4rem, $red);
 }
+
+.show{
+  display: block;
+  color: white;
+}
