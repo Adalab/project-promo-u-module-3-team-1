@@ -1,13 +1,14 @@
-
 import '../styles/index.scss';
-import cover from '../images/cover.jpeg';
-import logo from '../images/logo-adalab.png';
-import user from '../images/user.jpeg';
+
+
 import { useState } from 'react';
 import callToApi from '../services/api';
 import Header from './Header';
 import Footer from './Footer';
 import Preview from './Preview';
+import Landing from './landing'; 
+
+import { Route, Routes } from "react-router-dom"
 
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
     desc: '',
     autor: '',
     job: '',
-    image:'https://placehold.co/600x400',
-    photo:'https://placehold.co/600x400',
+    image: 'https://placehold.co/600x400',
+    photo: 'https://placehold.co/600x400',
 
   });
   const [cardUrl, setCardUrl] = useState('');
@@ -29,9 +30,9 @@ function App() {
   const [errorUrl, setErrorUrl] = useState('');
   const [showUrl, setShowUrl] = useState(false);
   const regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
- 
-  
-   const handleInput = (ev) => { 
+
+
+  const handleInput = (ev) => {
     ev.preventDefault();
     const inputId = ev.target.id
     const value = ev.target.value;
@@ -40,102 +41,84 @@ function App() {
       inputId === 'name' ||
       inputId === 'slogan' ||
       inputId === 'desc' ||
-      inputId === 'technologies'||
-      inputId === 'demo'||
+      inputId === 'technologies' ||
+      inputId === 'demo' ||
       inputId === 'repo'
-    ){ 
+    ) {
       setData({ ...data, [inputId]: value });
-    }else if (inputId === 'autor' || inputId === 'job') {
+    } else if (inputId === 'autor' || inputId === 'job') {
       if (regex.test(value)) {
-      setData({ ...data, [inputId]: value });
-      setError('');
-    } else {
-      console.log('error');
-      setError('*Este campo debe contener una URL válida')
+        setData({ ...data, [inputId]: value });
+        setError('');
+      } else {
+        console.log('error');
+        setError('*Este campo debe contener una URL válida')
+      }
     }
-   }
   }
 
-  const handleCreateBtn = () =>{
-     validateUrl();
-     callToApi(data).then((response) => {
+  const handleCreateBtn = () => {
+    validateUrl();
+    callToApi(data).then((response) => {
       setCardUrl(response);
-      if(response !== undefined) {
-         setShowUrl(true);
-         setData({name: '',
-         slogan: '',
-         repo: '',
-         demo: '',
-         technologies: '',
-         desc: '',
-         autor: '',
-         job: '',
-         image:'https://placehold.co/600x400',
-         photo:'https://placehold.co/600x400',});
-         setError('');
-         setErrorUrl('');
-  
-      } else {setShowUrl(false)}
-    
+      if (response !== undefined) {
+        setShowUrl(true);
+        setData({
+          name: '',
+          slogan: '',
+          repo: '',
+          demo: '',
+          technologies: '',
+          desc: '',
+          autor: '',
+          job: '',
+          image: 'https://placehold.co/600x400',
+          photo: 'https://placehold.co/600x400',
+        });
+        setError('');
+        setErrorUrl('');
+
+      } else { setShowUrl(false) }
+
     })
 
-    };
+  };
 
-const validateUrl = () =>{
-let urlRegex = /^(http|https):\/\/[^ "]+$/;
-  if (urlRegex.test(data.demo) && urlRegex.test(data.repo)) {
-    setErrorUrl('');
-    return true;
-  } else {
-    console.log('error');
-    setErrorUrl('*Este campo debe contener una URL válida');
-    return false;
+  const validateUrl = () => {
+    let urlRegex = /^(http|https):\/\/[^ "]+$/;
+    if (urlRegex.test(data.demo) && urlRegex.test(data.repo)) {
+      setErrorUrl('');
+      return true;
+    } else {
+      console.log('error');
+      setErrorUrl('*Este campo debe contener una URL válida');
+      return false;
+    }
+
   }
 
- }
-
- const handleForm = (ev) =>{
-  ev.preventDefault();
- }
+  const handleForm = (ev) => {
+    ev.preventDefault();
+  }
 
   return (
     <div className='container'>
       <header>
-       <Header/>
+        <Header />
       </header>
+     {/*<Routes>
+        <Route
+          path="/"
+          element={<Landing cards={cards} setCards={setCards} />}
+        />
+        <Route
+          path="/CreateProject"
+          element={<CreateProject cards={cards} setCards={setCards} />}
+        />
+  </Routes>*/}
       <main className='main'>
         <section className='preview'>
-          <img className='image preview__cover' src={cover} alt='' />
-
-          <article className='preview__autor'>
-            <section className='preview__autor--project'>
-              <p className='line-word'>Personal Project Card</p>
-              <hr className='line' />
-              <h2 className='title'>{data.name || 'Elegant Workspace'}</h2>
-              <p className='slogan'>{data.slogan || 'Diseños Exclusivos'}</p>
-              <p className='desc'>
-                {data.desc ||
-                  `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Libero, delectus Voluptates at hic aliquam porro ad suscipit
-                harum laboriosam saepe earum `}
-              </p>
-    
-              <p className='technologies'>
-                {data.technologies || 'React JS, MongoDB'}
-                <a href={data.demo} target="_blank"rel='noreferrer'><i className="globe fa-solid fa-globe"></i></a>
-                <a href={data.repo} target="_blank"rel='noreferrer'><i className="github fa-brands fa-github"></i></a>
-              </p>
-              
-            </section>
-
-            <figure className='preview__autor--figure'>
-              <img className='image' src={user} alt='' />
-              <figcaption>
-                <h3 className='job'>{data.job || 'Full Stack Developer'}</h3>
-                <h2 className='name'>{data.autor || 'Emmelie Björklund'}</h2>
-              </figcaption>
-            </figure>
-          </article>
+          <Preview name={data.name} slogan={data.slogan} demo={data.demo} repo={data.repo} technologies={data.technologies} desc={data.desc} autor={data.autor} job={data.job} image={data.image} photo={data.photo} />
         </section>
 
         <form className='form' onSubmit={handleForm}>
@@ -243,7 +226,7 @@ let urlRegex = /^(http|https):\/\/[^ "]+$/;
           </section>
 
           <section className={`card ${showUrl ? 'show' : 'hidden'}`}>
-             <span > La tarjeta ha sido creada: </span> 
+            <span > La tarjeta ha sido creada: </span>
             <a href={cardUrl} className='' target='_blank' rel='noreferrer'>
               {cardUrl}
             </a>
@@ -251,7 +234,7 @@ let urlRegex = /^(http|https):\/\/[^ "]+$/;
         </form>
       </main>
       <footer className='footer'>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   );

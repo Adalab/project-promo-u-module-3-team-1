@@ -1,4 +1,7 @@
-import '../styles/layout/Header.scss'
+import '../styles/index.scss';
+import logo from '../images/logo-adalab.png';
+
+
 function Header() {
   return (
     <>

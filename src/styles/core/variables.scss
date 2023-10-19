@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
+};
 
 
 @mixin textStyle($fontFamily, $fontWeight, $fontSize, $color) {
@@ -11,7 +11,7 @@
     font-weight: $fontWeight;
     font-size: $fontSize;
     color: $color;
-  }
+  };
 
 //colores
 
