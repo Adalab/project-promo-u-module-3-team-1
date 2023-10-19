@@ -1,11 +1,14 @@
-// Fichero src/components/App.jsx
+
 import '../styles/index.scss';
 import cover from '../images/cover.jpeg';
-//import cover2 from '../images/cover_2.jpeg';
 import logo from '../images/logo-adalab.png';
 import user from '../images/user.jpeg';
 import { useState } from 'react';
 import callToApi from '../services/api';
+import Header from './Header';
+import Footer from './Footer';
+import Preview from './Preview';
+
 
 function App() {
   const [data, setData] = useState({
@@ -98,18 +101,7 @@ let urlRegex = /^(http|https):\/\/[^ "]+$/;
   return (
     <div className='container'>
       <header>
-        <div className='header'>
-          <section className='header__section'>
-            <i className='header__section--icon fa-solid fa-laptop-code'></i>
-            <p className='header__section--text'>Proyectos Molones</p>
-        </section>
-        <img className='header__logo' src={logo} alt='' />
-        </div>
-        <div className= 'header__presentation'>
-          <h1 className= 'header__presentation--h1'>Proyectos Molones</h1>
-          <p className= 'header__presentation--p'>Escaparate en línea para recoger ideas a través de la tecnología.</p>
-          <button className= 'header__presentation--btn'>Ver proyectos</button>
-        </div>
+       <Header/>
       </header>
       <main className='main'>
         <section className='preview'>
@@ -259,7 +251,7 @@ let urlRegex = /^(http|https):\/\/[^ "]+$/;
         </form>
       </main>
       <footer className='footer'>
-        <img className='footer__logo' src={logo} alt='' />
+        <Footer/>
       </footer>
     </div>
   );
