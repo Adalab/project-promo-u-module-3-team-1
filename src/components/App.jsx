@@ -71,7 +71,8 @@ function App() {
          photo:'https://placehold.co/600x400',});
          setError('');
          setErrorUrl('');
-      }
+  
+      } else {setShowUrl(false)}
     
     })
 
@@ -250,7 +251,7 @@ let urlRegex = /^(http|https):\/\/[^ "]+$/;
           </section>
 
           <section className={`card ${showUrl ? 'show' : 'hidden'}`}>
-             { <span className=''> La tarjeta ha sido creada: </span> }
+             <span > La tarjeta ha sido creada: </span> 
             <a href={cardUrl} className='' target='_blank' rel='noreferrer'>
               {cardUrl}
             </a>
