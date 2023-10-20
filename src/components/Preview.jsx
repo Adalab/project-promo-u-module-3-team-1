@@ -1,11 +1,10 @@
 import '../styles/index.scss';
-import cover from '../images/cover.jpeg';
+
 import user from '../images/user.jpeg';
 
 function Preview({name, slogan, repo, demo, desc, technologies, autor, job}) {
   return (
     <>
-      <img className="image preview__cover" src={cover} alt="" />
 
       <article className="preview__autor">
         <section className="preview__autor--project">
