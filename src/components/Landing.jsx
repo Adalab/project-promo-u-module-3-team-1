@@ -1,17 +1,17 @@
-import '../styles/index.scss';
-import Header from './Header';
-import Footer from './Footer';
+
+import '../styles/layout/CardSmall.scss'
 import Preview from './Preview';
 import { Link } from 'react-router-dom';
 
 
 function Landing() {
     return (
-        <>
-            <button><Link to="./"></Link></button>
-            <Preview />
-    
-        </>
+        <section className="section_landing">
+            <Preview className="preview1" />
+            <Preview className="preview" />
+            <Preview className="preview" />
+            <Preview className="preview" />
+        </section>
     );
 }
 

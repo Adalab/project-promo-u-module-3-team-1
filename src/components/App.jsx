@@ -7,6 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Preview from './Preview';
 import Landing from './landing';
+import CreatePage from './CreatePage';
 
 
 import { Route, Routes } from "react-router-dom"
@@ -37,7 +38,6 @@ function App() {
     ev.preventDefault();
     const inputId = ev.target.id
     const value = ev.target.value;
-
     if (
       inputId === 'name' ||
       inputId === 'slogan' ||
@@ -113,6 +113,11 @@ function App() {
             path="/"
             element={<Landing data={data} setData={setData} />}
           />
+          <Route
+            path="/CreatePage"
+            element={<CreatePage data={data} />}
+          />
+
 
         </Routes>
 

@@ -3,7 +3,8 @@ import cover from '../images/cover.jpeg';
 
 
 const CreatePage = (data) => {
-    const handleInput = () => {
+    const handleInput = (ev) => {
+        handleChangeInput(ev.target.value);
 
     };
 
