@@ -4,7 +4,7 @@
   padding-top: 50px;
   height: 80%;
   @media all and (min-width: 1024px){
-    flex-direction:row;
+    flex-direction: row;
     justify-content: space-around;
   }
 
@@ -17,7 +17,7 @@
  @include centerTotal;
  @media all and (min-width: 1024px){
   width: 48.5%;
-  margin-left: auto;
+  //margin-left: auto;
 }
   &__cover {
     object-fit: cover;

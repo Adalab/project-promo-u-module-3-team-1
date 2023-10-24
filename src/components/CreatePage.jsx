@@ -7,8 +7,11 @@ import cover from '../images/cover.jpeg';
 
 
 const CreatePage = ({ data, error, cardUrl, errorUrl, showUrl, handleCreateBtn, handleChangeInput }) => {
+
     const handleInput = (ev) => {
-        handleChangeInput(ev.target.value);
+        const inputId = ev.target.id
+        const value = ev.target.value;
+        handleChangeInput(inputId, value);
     };
 
     const handleForm = (ev) => {

@@ -35,11 +35,8 @@ function App() {
   const [showUrl, setShowUrl] = useState(false);
   const regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
 
+  const handleChangeInput = (inputId, value) => {
 
-  const handleChangeInput = (ev) => {
-    ev.preventDefault();
-    const inputId = ev.target.id
-    const value = ev.target.value;
     if (
       inputId === 'name' ||
       inputId === 'slogan' ||
