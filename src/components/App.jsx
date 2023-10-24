@@ -11,12 +11,13 @@ import CreatePage from './CreatePage';
 import ButtonRoute from './ButtonRoute';
 
 
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom";
+import ls from '../services/localStorage';
 
 
 
 function App() {
-  const [data, setData] = useState({
+  const [data, setData] = useState(ls.get('dataLs', {
     name: '',
     slogan: '',
     repo: '',
@@ -27,8 +28,8 @@ function App() {
     job: '',
     image: 'https://placehold.co/600x400',
     photo: 'https://placehold.co/600x400',
+  }));
 
-  });
   const [cardUrl, setCardUrl] = useState('');
   const [error, setError] = useState('');
   const [errorUrl, setErrorUrl] = useState('');
@@ -54,6 +55,7 @@ function App() {
         console.log('error');
         setError('*Este campo debe contener una URL válida')
       }
+      ls.set('dataLs', data);
     }
   }
 
