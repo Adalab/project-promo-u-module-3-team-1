@@ -1,11 +1,14 @@
+import '../styles/index.scss';
 import Preview from "./Preview";
 import cover from '../images/cover.jpeg';
 
 
-const CreatePage = (data) => {
+
+
+
+const CreatePage = ({ data, error, cardUrl, errorUrl, showUrl, handleCreateBtn, handleChangeInput }) => {
     const handleInput = (ev) => {
         handleChangeInput(ev.target.value);
-
     };
 
     const handleForm = (ev) => {

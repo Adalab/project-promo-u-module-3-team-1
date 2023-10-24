@@ -1,11 +1,10 @@
 import '../styles/index.scss';
 
-import user from '../images/user.jpeg';
+import user2 from '../images/user2.png';
 
 function Preview({ name, slogan, repo, demo, desc, technologies, autor, job }) {
   return (
-    <>
-
+    <div className="div_preview">
       <article className="preview__autor">
         <section className="preview__autor--project">
           <p className="line-word">Personal Project Card</p>
@@ -31,14 +30,14 @@ function Preview({ name, slogan, repo, demo, desc, technologies, autor, job }) {
         </section>
 
         <figure className="preview__autor--figure">
-          <img className="image" src={user} alt="" />
+          <img className="image" src={user2} alt="" />
           <figcaption>
             <h3 className="job">{(job) || "Full Stack Developer"}</h3>
             <h2 className="name">{(autor) || "Emmelie Björklund"}</h2>
           </figcaption>
         </figure>
       </article>
-    </>
+    </div>
   )
 }
 

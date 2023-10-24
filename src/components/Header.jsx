@@ -2,6 +2,7 @@ import '../styles/index.scss';
 import logo from '../images/logo-adalab.png';
 
 
+
 function Header() {
   return (
     <>
@@ -17,7 +18,6 @@ function Header() {
         <p className='header__presentation--p'>
           Escaparate en línea para recoger ideas a través de la tecnología.
         </p>
-        <button className='header__presentation--btn'>Ver proyectos</button>
       </div>
     </>
   );

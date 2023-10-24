@@ -8,9 +8,11 @@ import Footer from './Footer';
 import Preview from './Preview';
 import Landing from './landing';
 import CreatePage from './CreatePage';
+import ButtonRoute from './ButtonRoute';
 
 
 import { Route, Routes } from "react-router-dom"
+
 
 
 function App() {
@@ -34,7 +36,7 @@ function App() {
   const regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
 
 
-  const handleInput = (ev) => {
+  const handleChangeInput = (ev) => {
     ev.preventDefault();
     const inputId = ev.target.id
     const value = ev.target.value;
@@ -111,11 +113,21 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Landing data={data} setData={setData} />}
+            element={
+              <>
+                <ButtonRoute text="Nuevo Proyecto" route="/CreatePage" />
+                <Landing data={data} setData={setData} />
+              </>
+            }
           />
+
           <Route
             path="/CreatePage"
-            element={<CreatePage data={data} />}
+            element={
+              <>
+                <ButtonRoute text="Ver Proyectos" route="/" />
+                <CreatePage data={data} error={error} cardUrl={cardUrl} errorUrl={errorUrl} showUrl={showUrl} handleCreateBtn={handleCreateBtn} handleChangeInput={handleChangeInput} />
+              </>}
           />
 
 
