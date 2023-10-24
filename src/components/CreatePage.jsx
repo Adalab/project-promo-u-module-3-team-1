@@ -1,6 +1,6 @@
 import '../styles/index.scss';
 import Preview from "./Preview";
-import cover from '../images/cover.jpeg';
+import cover2 from '../images/cover2.jpg';
 
 
 
@@ -20,9 +20,10 @@ const CreatePage = ({ data, error, cardUrl, errorUrl, showUrl, handleCreateBtn, 
 
     return (
         <section className='preview'>
-            <img className="image preview__cover" src={cover} alt="" />
-            <Preview name={data.name} slogan={data.slogan} demo={data.demo} repo={data.repo} technologies={data.technologies} desc={data.desc} autor={data.autor} job={data.job} image={data.image} photo={data.photo} />
-
+            <div>
+                <img className="image preview__cover" src={cover2} alt="" />
+                <Preview name={data.name} slogan={data.slogan} demo={data.demo} repo={data.repo} technologies={data.technologies} desc={data.desc} autor={data.autor} job={data.job} image={data.image} photo={data.photo} />
+            </div>
 
             <form className='form' onSubmit={handleForm}>
                 <h2 className='form__title'>Información</h2>
