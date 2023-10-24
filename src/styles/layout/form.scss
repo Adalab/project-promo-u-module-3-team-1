@@ -5,7 +5,7 @@
   flex-direction: column;
   text-align: center;
   margin: auto;
-  @media all and (min-width: 1024px){
+  @media all and (min-width: 1024px) {
     width: 38.47%;
     justify-content: space-around;
   }
@@ -39,7 +39,8 @@
         );
       }
     }
-    .input, .textarea  {
+    .input,
+    .textarea {
       height: 42.72px;
       color: $white;
       padding-left: 15px;
@@ -56,65 +57,64 @@
 
 .main .input::placeholder,
 .textarea::placeholder {
-  @include textStyle($fontMontserrat, 300, 1.4rem,  $white);
-  
+  @include textStyle($fontMontserrat, 300, 1.4rem, $white);
 }
-.textarea::placeholder{
+.textarea::placeholder {
   padding-top: 1.5rem;
 }
 
 .main .buttons-img {
   text-align: center;
 }
-.btn{
+.btn {
   display: flex;
   gap: 0.6rem;
-  justify-content: center; 
- 
+  justify-content: center;
 }
-.btn__project, .btn__author,
+.btn__project,
+.btn__author,
 .create__box--btn {
   width: 160px;
   font-weight: 700;
-  margin-top: 10px;
+  margin: 2rem 0;
   color: $white;
   text-align: center;
   border: none;
   height: 43px;
   background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
   border-radius: 40px;
-  @include textStyle($fontMontserrat, 700, 1.4rem,  $white);
-  
+  @include textStyle($fontMontserrat, 700, 1.4rem, $white);
 }
-.create__box{
+.create__box {
   @include centerTotal;
   &--btn {
     width: 200px;
     border: solid 2px $white;
-    }
+  }
 }
 
 .card {
   color: $white;
   text-align: center;
-  padding: 20px;
+  //padding: 20px;
 }
 
 .hidden {
   display: none;
 }
-.error{
-@include textStyle ($fontMontserrat, 700, 1.4rem, $red);
+.error {
+  @include textStyle($fontMontserrat, 400, 1.6rem, $red);
 }
 
-.show{
+.show {
   display: block;
   color: white;
 }
-
-.main{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+.card_URL {
+  @include textStyle($fontMontserrat, 700, 1.8rem, rgb(238, 32, 197));
+  text-decoration: none;
+  line-height: 5rem;
+}
+.card_message {
+  @include textStyle($fontMontserrat, 300, 1.9rem, $white);
 }

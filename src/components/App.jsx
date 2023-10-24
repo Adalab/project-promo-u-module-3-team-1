@@ -1,6 +1,5 @@
 import '../styles/index.scss';
 
-
 import { useState } from 'react';
 import callToApi from '../services/api';
 import Header from './Header';
@@ -10,34 +9,46 @@ import Landing from './Landing';
 import CreatePage from './CreatePage';
 import ButtonRoute from './ButtonRoute';
 
-
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 import ls from '../services/localStorage';
 
-
-
 function App() {
-  const [data, setData] = useState(ls.get('dataLs', {
-    name: '',
-    slogan: '',
-    repo: '',
-    demo: '',
-    technologies: '',
-    desc: '',
-    autor: '',
-    job: '',
-    image: 'https://placehold.co/600x400',
-    photo: 'https://placehold.co/600x400',
-  }));
+  const [data, setData] = useState(
+    ls.get('dataLs', {
+      name: '',
+      slogan: '',
+      repo: '',
+      demo: '',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
+      image: '',
+      photo: '',
+    })
+  );
 
   const [cardUrl, setCardUrl] = useState('');
   const [error, setError] = useState('');
   const [errorUrl, setErrorUrl] = useState('');
   const [showUrl, setShowUrl] = useState(false);
   const regex = /^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]*$/;
+  const [avatar, setAvatar] = useState('');
+  const [project, setProject] = useState('');
+
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+    data.image = avatar;
+    ls.set('dataLs', { ...data, image: avatar });
+  };
+
+  const updateProject = (project) => {
+    setProject(project);
+    data.photo = project;
+    ls.set('dataLs', { ...data, photo: project });
+  };
 
   const handleChangeInput = (inputId, value) => {
-
     if (
       inputId === 'name' ||
       inputId === 'slogan' ||
@@ -53,11 +64,12 @@ function App() {
         setError('');
       } else {
         console.log('error');
-        setError('*Este campo debe contener una URL válida')
+        setError('*Este campo no admite números');
       }
+      4;
       ls.set('dataLs', data);
     }
-  }
+  };
 
   const handleCreateBtn = () => {
     validateUrl();
@@ -74,16 +86,15 @@ function App() {
           desc: '',
           autor: '',
           job: '',
-          image: 'https://placehold.co/600x400',
-          photo: 'https://placehold.co/600x400',
+          image: '',
+          photo: '',
         });
         setError('');
         setErrorUrl('');
-
-      } else { setShowUrl(false) }
-
-    })
-
+      } else {
+        setShowUrl(false);
+      }
+    });
   };
 
   const validateUrl = () => {
@@ -96,19 +107,15 @@ function App() {
       setErrorUrl('*Este campo debe contener una URL válida');
       return false;
     }
-
-  }
-
-
+  };
 
   return (
-    <div className='container'>
+    <div className="container">
       <header>
         <Header />
       </header>
 
-      <main className='main'>
-
+      <main className="main">
         <Routes>
           <Route
             path="/"
@@ -125,15 +132,25 @@ function App() {
             element={
               <>
                 <ButtonRoute text="Ver Proyectos" route="/" />
-                <CreatePage data={data} error={error} cardUrl={cardUrl} errorUrl={errorUrl} showUrl={showUrl} handleCreateBtn={handleCreateBtn} handleChangeInput={handleChangeInput} />
-              </>}
+                <CreatePage
+                  data={data}
+                  error={error}
+                  cardUrl={cardUrl}
+                  errorUrl={errorUrl}
+                  showUrl={showUrl}
+                  handleCreateBtn={handleCreateBtn}
+                  handleChangeInput={handleChangeInput}
+                  avatar={avatar}
+                  updateAvatar={updateAvatar}
+                  project={project}
+                  updateProject={updateProject}
+                />
+              </>
+            }
           />
-
-
         </Routes>
-
       </main>
-      <footer className='footer'>
+      <footer className="footer">
         <Footer />
       </footer>
     </div>

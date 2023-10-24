@@ -1,16 +1,21 @@
-.preview__autor{
-    background-color: white;
-    width: 40rem;
-    transform: translateY(0%);
+.preview__autor {
+  background-color: white;
+  width: 40rem;
 }
 
-.section_landing{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 2rem;
+.section_landing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  @media all and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin-top: 0;
+    transform: translateY(25%);
+    align-items: stretch;
+  }
 }
-
-
