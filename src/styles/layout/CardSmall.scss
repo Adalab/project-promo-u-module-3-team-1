@@ -4,12 +4,13 @@
 }
 
 .section_landing {
-  display: flex;
+  display: grid;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
   margin-top: 2rem;
+  transform: translateY(10%);
   @media all and (min-width: 1024px) {
     display: grid;
     grid-template-columns: 1fr 1fr;

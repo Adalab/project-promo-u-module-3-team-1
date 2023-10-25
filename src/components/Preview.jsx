@@ -2,7 +2,7 @@ import '../styles/index.scss';
 
 import user2 from '../images/user2.png';
 
-function Preview({ name, slogan, repo, demo, desc, technologies, autor, job }) {
+function Preview({ name, slogan, repo, demo, desc, technologies, autor, job, avatar, updateAvatar, project, updateProject }) {
   return (
     <div className="div_preview">
       <article className="preview__autor">
@@ -30,7 +30,7 @@ function Preview({ name, slogan, repo, demo, desc, technologies, autor, job }) {
         </section>
 
         <figure className="preview__autor--figure">
-          <img className="image" src={user2} alt="" />
+          <img className="image" src={(user2) || (avatar)} alt="" />
           <figcaption>
             <h3 className="job">{(job) || "Full Stack Developer"}</h3>
             <h2 className="name">{(autor) || "Emmelie Björklund"}</h2>

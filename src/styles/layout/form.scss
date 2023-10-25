@@ -115,9 +115,13 @@
   color: white;
 }
 .card_URL {
-  @include textStyle($fontMontserrat, 700, 1.8rem, rgb(238, 32, 197));
+  @include textStyle($fontMontserrat, 700, 1.2rem, rgb(238, 32, 197));
   text-decoration: none;
   line-height: 5rem;
+
+  @media all and (min-width:740px){
+  @include textStyle($fontMontserrat, 700, 1.6rem, rgb(238, 32, 197));
+  }
 }
 .card_message {
   @include textStyle($fontMontserrat, 300, 1.9rem, $white);

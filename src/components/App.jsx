@@ -24,7 +24,7 @@ function App() {
       autor: '',
       job: '',
       image: '',
-      photo: '',
+      photo: 'https://c.pxhere.com/images/ce/61/9857aa81faffceffb291c74502ff-1602352.jpg!d',
     })
   );
 
@@ -86,7 +86,7 @@ function App() {
           autor: '',
           job: '',
           image: '',
-          photo: '',
+          photo: 'https://c.pxhere.com/images/ce/61/9857aa81faffceffb291c74502ff-1602352.jpg!d',
         });
         setError('');
         setErrorUrl('');
