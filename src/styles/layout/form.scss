@@ -70,6 +70,7 @@
   display: flex;
   gap: 0.6rem;
   justify-content: center;
+  align-items: center;
 }
 .btn__project,
 .btn__author,
@@ -81,6 +82,9 @@
   text-align: center;
   border: none;
   height: 43px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
   border-radius: 40px;
   @include textStyle($fontMontserrat, 700, 1.4rem, $white);

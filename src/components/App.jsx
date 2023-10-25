@@ -66,7 +66,6 @@ function App() {
         console.log('error');
         setError('*Este campo no admite números');
       }
-      4;
       ls.set('dataLs', data);
     }
   };
