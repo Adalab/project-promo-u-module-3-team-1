@@ -18,14 +18,14 @@
   .fieldset {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
     border: none;
     &__legend {
       text-align: center;
       font-size: 1.7rem;
       color: $white;
       &--subtitle {
-        padding-bottom: 10px;
+        padding-bottom: 1rem;
       }
       &--line {
         width: 100%;
@@ -40,17 +40,17 @@
       }
     }
     .input,
-    .textarea {
-      height: 42.72px;
+    textarea {
+      height: 4.272rem ;
       color: $white;
-      padding-left: 15px;
-      padding-top: 5px;
+      padding: 1rem;
       background-color: transparent;
       border-color: $white;
-      border-radius: 40px;
+      border-radius: 4rem;
     }
-    .textarea {
-      height: 110px;
+.textarea {
+      height: 11rem;
+      padding-top: 1.5rem;
     }
   }
 }
@@ -100,7 +100,6 @@
 .card {
   color: $white;
   text-align: center;
-  //padding: 20px;
 }
 
 .hidden {

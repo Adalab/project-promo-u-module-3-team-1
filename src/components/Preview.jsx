@@ -30,7 +30,7 @@ function Preview({ name, slogan, repo, demo, desc, technologies, autor, job, ava
         </section>
 
         <figure className="preview__autor--figure">
-          <img className="image" src={(user2) || (avatar)} alt="" />
+          <img className="image" src={ avatar|| (user2)} alt="" />
           <figcaption>
             <h3 className="job">{(job) || "Full Stack Developer"}</h3>
             <h2 className="name">{(autor) || "Emmelie Björklund"}</h2>

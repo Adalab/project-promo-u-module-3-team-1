@@ -9,7 +9,7 @@
     border: none;
     background-color: $dark-lilac;
     transform: translateY(-120%);
-    margin: 0 2.1rem 0.15rem 0;
+    margin: 0;
     @media all and (min-width: 1024px){
         @include textStyle($fontRoboto, 700, 1.5rem,  $white);
         width: 15.4rem;

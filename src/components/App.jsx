@@ -4,7 +4,6 @@ import { useState } from 'react';
 import callToApi from '../services/api';
 import Header from './Header';
 import Footer from './Footer';
-import Preview from './Preview';
 import Landing from './Landing';
 import CreatePage from './CreatePage';
 import ButtonRoute from './ButtonRoute';
