@@ -37,14 +37,14 @@ function App() {
 
   const updateAvatar = (avatar) => {
     setAvatar(avatar);
-    data.photo = avatar;
-    ls.set('dataLs', { ...data, photo: avatar });
+    data.image = avatar;
+    ls.set('dataLs', { ...data, image: avatar });
   };
 
   const updateProject = (project) => {
     setProject(project);
-    data.image = project;
-    ls.set('dataLs', { ...data, image: project });
+    data.photo = project;
+    ls.set('dataLs', { ...data, photo: project });
   };
 
   const handleChangeInput = (inputId, value) => {

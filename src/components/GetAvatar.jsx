@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import defaultAvatar from '../images/user2.png';
 import '../styles/index.scss';
 
-function GetAvatar({ update, text, project }) {
+function GetAvatar({ update, text }) {
 
   const fr = new FileReader();
   const myFileField = React.createRef();
@@ -32,7 +32,7 @@ function GetAvatar({ update, text, project }) {
     const image = fr.result;
 
     update(image);
-   
+
   };
 
   return (
