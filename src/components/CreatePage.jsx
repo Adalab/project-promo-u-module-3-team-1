@@ -38,7 +38,7 @@ const CreatePage = ({
     return (
         <section className="preview">
             <div>
-                <img className="image preview__cover" src={data.photo||(cover2)} alt="" />
+                <img className="image preview__cover" src={data.image||(cover2)} alt="" />
                 <Preview
                     data={data}
                 />
