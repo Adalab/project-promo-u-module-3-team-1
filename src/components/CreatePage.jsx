@@ -38,18 +38,9 @@ const CreatePage = ({
     return (
         <section className="preview">
             <div>
-                <img className="image preview__cover" src={cover2} alt="" />
+                <img className="image preview__cover" src={data.photo||(cover2)} alt="" />
                 <Preview
-                    name={data.name}
-                    slogan={data.slogan}
-                    demo={data.demo}
-                    repo={data.repo}
-                    technologies={data.technologies}
-                    desc={data.desc}
-                    autor={data.autor}
-                    job={data.job}
-                    image={data.image}
-                    photo={data.photo}
+                    data={data}
                 />
             </div>
 
@@ -161,14 +152,14 @@ const CreatePage = ({
                     <GetAvatar
                         className="btn__project"
                         project={project}
-                        updateProject={updateProject}
+                        update={updateProject}
                         text={'Subir foto del proyecto'}
                         onClick={handleProject}
                     />
                     <GetAvatar
                         className="btn__author"
                         avatar={avatar}
-                        updateAvatar={updateAvatar}
+                        update={updateAvatar}
                         text={'Subir foto de la autora'}
                         onClick={handleAvatar}
                     />
