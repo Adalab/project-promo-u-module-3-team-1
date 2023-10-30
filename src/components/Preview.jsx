@@ -3,6 +3,7 @@ import '../styles/index.scss';
 import user2 from '../images/user2.png';
 
 function Preview({ data }) {
+  console.log(data);
   return (
     <div className="div_preview">
       <article className="preview__autor">

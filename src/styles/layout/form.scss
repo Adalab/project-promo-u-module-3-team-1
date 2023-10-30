@@ -39,18 +39,23 @@
         );
       }
     }
-    .input,
-    textarea {
+    .input {
+      @include textStyle($fontMontserrat, 300, 1.6rem, $white);
       height: 4.272rem ;
-      color: $white;
       padding: 1rem;
       background-color: transparent;
       border-color: $white;
       border-radius: 4rem;
     }
 .textarea {
+      @include textStyle($fontMontserrat, 300, 1.6rem, $white);
       height: 11rem;
-      padding-top: 1.5rem;
+      padding: 2rem 1rem 1rem 1rem;
+      background-color: transparent;
+      border-color: $white;
+      border-radius: 4rem;
+      
+
     }
   }
 }
@@ -58,9 +63,6 @@
 .main .input::placeholder,
 .textarea::placeholder {
   @include textStyle($fontMontserrat, 300, 1.4rem, $white);
-}
-.textarea::placeholder {
-  padding-top: 1.5rem;
 }
 
 .main .buttons-img {
@@ -87,8 +89,26 @@
   justify-content: center;
   background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
   border-radius: 40px;
+  cursor: pointer;
   @include textStyle($fontMontserrat, 700, 1.4rem, $white);
 }
+.reset{
+  text-transform: uppercase;
+  border: solid 2px rgb(238, 32, 197);
+  width: 160px;
+  font-weight: 700;
+  margin: 1rem 0;
+  text-align: center;
+  height: 43px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
+  border-radius: 40px;
+  cursor: pointer;
+  @include textStyle($fontMontserrat, 700, 1.4rem, rgb(238, 32, 197));
+}
+
 .create__box {
   @include centerTotal;
   &--btn {
@@ -96,7 +116,9 @@
     border: solid 2px $white;
   }
 }
-
+.get-avatar__label{
+  cursor: pointer;
+}
 .card {
   color: $white;
   text-align: center;

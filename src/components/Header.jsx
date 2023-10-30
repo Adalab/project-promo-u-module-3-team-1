@@ -1,5 +1,6 @@
 import '../styles/index.scss';
 import logo from '../images/logo-adalab.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -7,10 +8,12 @@ function Header() {
   return (
     <>
       <div className='header'>
-        <section className='header__section'>
-          <i className='header__section--icon fa-solid fa-laptop-code'></i>
-          <p className='header__section--text'>Proyectos Molones</p>
-        </section>
+        <Link className='Link-style' to="/">
+          <section className='header__section'>
+            <i className='header__section--icon fa-solid fa-laptop-code'></i>
+            <p className='header__section--text'>Proyectos Molones</p>
+          </section>
+        </Link>
         <img className='header__logo' src={logo} alt='' />
       </div>
       <div className='header__presentation'>

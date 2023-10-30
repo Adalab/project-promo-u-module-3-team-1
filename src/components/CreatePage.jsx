@@ -14,7 +14,8 @@ const CreatePage = ({
     avatar,
     updateAvatar,
     project,
-    updateProject
+    updateProject,
+    updateShowUrl
 }) => {
     const handleInput = (ev) => {
         const inputId = ev.target.id;
@@ -32,6 +33,10 @@ const CreatePage = ({
 
     const handleProject = (ev) => {
         updateProject(ev.target.value);
+    };
+
+    const handleReset = () => {
+        updateShowUrl(false);
     };
 
 
@@ -166,6 +171,7 @@ const CreatePage = ({
                     <button className="create__box--btn" onClick={handleCreateBtn}>
                         Crear Tarjeta{' '}
                     </button>
+                    <button className="reset" onClick={handleReset}> Reset </button>
                 </section>
 
                 <section className={`card ${showUrl ? 'show' : 'hidden'}`}>

@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Landing from './Landing';
 import CreatePage from './CreatePage';
 import ButtonRoute from './ButtonRoute';
+import Preview from './Preview';
 
 import { Route, Routes } from 'react-router-dom';
 import ls from '../services/localStorage';
@@ -46,6 +47,26 @@ function App() {
     data.photo = project;
     ls.set('dataLs', { ...data, photo: project });
   };
+
+  const updateShowUrl = (value) => {
+    console.log(value);
+    setShowUrl(value);
+    setData({
+      name: '',
+      slogan: '',
+      repo: '',
+      demo: '',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
+      image: '',
+      photo: '',
+    });
+    setError('');
+    setErrorUrl('');
+  }
+
 
   const handleChangeInput = (inputId, value) => {
     if (
@@ -142,6 +163,7 @@ function App() {
                   updateAvatar={updateAvatar}
                   project={project}
                   updateProject={updateProject}
+                  updateShowUrl={updateShowUrl}
                 />
               </>
             }
