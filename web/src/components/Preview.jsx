@@ -2,7 +2,7 @@ import '../styles/index.scss';
 
 import user2 from '../images/user2.png';
 
-function Preview({ data }) {
+function Preview({ data, className }) {
   console.log(data);
   return (
     <div className="div_preview">
@@ -13,7 +13,7 @@ function Preview({ data }) {
           <h2 className="title">{(data.name) || "Elegant Workspace"}</h2>
           <p className="slogan">{(data.slogan) || "Diseños Exclusivos"}</p>
           <p className="desc">
-            {(data.desc) ||
+            {(data.des) ||
               `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Libero, delectus Voluptates at hic aliquam porro ad suscipit
               harum laboriosam saepe earum `}

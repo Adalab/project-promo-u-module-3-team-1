@@ -1,7 +1,21 @@
 import '../styles/layout/CardSmall.scss';
 import Preview from './Preview';
+import api from '../services/api'
+import { useEffect, useState } from 'react';
 
 function Landing() {
+
+  const [listProject, setListProject] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await api.getDataProjects();
+      console.log(data);
+      setListProject(data);
+    }
+    fetchData();
+  }, []);
+
   const dataPreview1 = {
     name: 'Harvard Computers',
     slogan: 'Cracking the secrets of the universe',
@@ -52,7 +66,15 @@ function Landing() {
   }
   return (
     <section className="section_landing">
-      <Preview
+      {listProject.map((project) => {
+        return (
+          <Preview
+            className="preview"
+            data={project}
+          />)
+      })}
+
+      {/* <Preview
         className="preview"
         data={dataPreview1}
       />
@@ -70,7 +92,8 @@ function Landing() {
       <Preview
         className="preview"
         data={dataPreview4}
-      />
+      /> */}
+
     </section>
   );
 }

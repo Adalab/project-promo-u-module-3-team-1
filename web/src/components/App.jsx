@@ -1,7 +1,7 @@
 import '../styles/index.scss';
 
 import { useState } from 'react';
-import callToApi from '../services/api';
+import api from '../services/api';
 import Header from './Header';
 import Footer from './Footer';
 import Landing from './Landing';
@@ -92,7 +92,7 @@ function App() {
 
   const handleCreateBtn = () => {
     validateUrl();
-    callToApi(data).then((response) => {
+    api.callToApi(data).then((response) => {
       setCardUrl(response);
       if (response !== undefined) {
         setShowUrl(true);
