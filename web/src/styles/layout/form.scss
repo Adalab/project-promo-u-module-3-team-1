@@ -94,7 +94,7 @@
 }
 .reset{
   text-transform: uppercase;
-  border: solid 2px rgb(238, 32, 197);
+  border: solid 4px rgb(164, 5, 133);
   width: 160px;
   font-weight: 700;
   margin: 1rem 0;
@@ -106,7 +106,7 @@
   background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
   border-radius: 40px;
   cursor: pointer;
-  @include textStyle($fontMontserrat, 700, 1.4rem, rgb(238, 32, 197));
+  @include textStyle($fontMontserrat, 700, 1.4rem, rgb(164, 5, 133));
 }
 
 .create__box {
