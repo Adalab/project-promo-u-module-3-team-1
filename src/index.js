@@ -36,16 +36,51 @@ app.get('/authors/list', async (req, res) => {
 const staticServerPath = './web/dist/';
 app.use(express.static(staticServerPath));
 
-app.post('/createproject', async (req, res) => {
-  const body = req.body;
-  console.log(body);
-  const insertUser = `INSERT INTO users(username, image) values(?,?,?);`;
-  const [result] = await conn.query(
-    insertUser[(body.autor, body.job, body.photo)]
-  );
-  console.log(result);
+// app.post('/createproject', async (req, res) => {
+//   const body = req.body;
+//   console.log(body);
+//   const insertUser = `INSERT INTO users(username, image) values(?,?,?);`;
+//   const [result] = await conn.query(
+//     insertUser[(body.autor, body.job, body.photo)]
+//   );
+//   console.log(result);
+
+app.post('/createproject', async(req, res) => {
+  console.log('crear projecto')
+   //1. hacer la query
+   const queryInsertAutora = `INSERT INTO autora (autor, job, photo) VALUES ('?','?','?'); `;
+   const queryInsertProyecto = `INSERT INTO proyectos (name, slogan, repo, demo, technologies, des, image) VALUES ('?','?','?','?','?','?','?'); `;
+
+   //2. hacer la conexion
+   const conn = await getConnection();
+ 
+   //3. ejecutar la query
+   const [results] = await conn
+    .query(queryInsertAutora, queryInsertProyecto[
+      req.body.autor,
+      req.body.job,
+      req.body.photo
+   ],[
+      req.body.name,
+      req.body.slogan,
+      req.body.repo,
+      req.body.demo,
+      req.body.technologies,
+      req.body.des,
+      req.body.image
+    ]);
+ 
+   console.log(results);
+   conn.end();
+   res.json({
+     success: true,
+     idNewAutora: results.insertId,
+     message: "Se ha insertado correctamente",
+   });
+ });
+
 
   // rs.json({
   //   cardUrl:
   // })
-});
+
