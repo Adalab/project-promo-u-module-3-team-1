@@ -92,6 +92,7 @@ function App() {
 
   const handleCreateBtn = () => {
     validateUrl();
+    api.postNewProject(data, setData);
     api.callToApi(data).then((response) => {
       setCardUrl(response);
       if (response !== undefined) {

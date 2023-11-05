@@ -25,27 +25,29 @@ const getDataProjects = async () => {
 };
 
 
-// const postNewProject = async () => {
-//   console.log("Guardar proyecto");
-//   console.log('data');
+const postNewProject = async (data, setData) => {
+  console.log("Guardar proyecto");
+  console.log(data);
 
-//   fetch("http://localhost:3500/createproject", {
-//     method: "POST",
-//     body: JSON.stringify('aquitienequeirdata'),
-//     headers: {
-//       "Content-type": "application/json",
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((datos) => {
-//       console.log(datos);
-//       if (datos.success) {
-//         console.log('funciona?')
-//       }
-//     });
+  fetch("http://localhost:3500/createproject", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((datos) => {
+      console.log(datos);
+      if (datos.success) {
+        console.log('funciona?')
+        console.log(data);
+        setData(data);
+      }
+    });
 
-//   // Aqui vamos hacer el fetch para crear una nueva alumna
-// };
+  // Aqui vamos hacer el fetch para crear una nueva alumna
+};
 
 const object = {
   getDataProjects: getDataProjects,
