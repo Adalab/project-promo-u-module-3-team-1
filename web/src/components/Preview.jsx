@@ -13,7 +13,7 @@ function Preview({ data, className }) {
           <h2 className="title">{(data.name) || "Elegant Workspace"}</h2>
           <p className="slogan">{(data.slogan) || "Diseños Exclusivos"}</p>
           <p className="desc">
-            {(data.des) ||
+            {(data.desc) ||
               `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Libero, delectus Voluptates at hic aliquam porro ad suscipit
               harum laboriosam saepe earum `}

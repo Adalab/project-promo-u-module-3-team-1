@@ -45,8 +45,6 @@ const postNewProject = async (data, setData) => {
         setData(data);
       }
     });
-
-  // Aqui vamos hacer el fetch para crear una nueva alumna
 };
 
 const object = {
