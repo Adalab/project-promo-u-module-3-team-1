@@ -38,7 +38,7 @@ app.post('/createproject', async(req, res) => {
   console.log('crear projecto')
     // 1. Hacer la query
   const queryInsertAutora = `INSERT INTO autora (autor, job, photo) VALUES (?, ?, ?); `;
-  const queryInsertProyecto = `INSERT INTO proyectos (name, slogan, repo, demo, technologies) VALUES (?, ?, ?, ?, ?);` ;
+  const queryInsertProyectos = `INSERT INTO proyectos (name, slogan, repo, demo, technologies, fk_autora) VALUES (?, ?, ?, ?, ?, ?);` ;
 
   // 2. Hacer la conexión
   const conn = await getConnection();
@@ -51,12 +51,13 @@ app.post('/createproject', async(req, res) => {
   ]);
 
   // 4. Ejecutar la query para la tabla proyectos
-  const [resultsProyectos] = await conn.query(queryInsertProyecto [
+  const [resultsProyectos] = await conn.query(queryInsertProyectos, [
     req.body.name,
     req.body.slogan,
     req.body.repo,
     req.body.demo,
-    req.body.technologies
+    req.body.technologies,
+    resultsAutora.insertId
     //req.body.desc
     //req.body.image
   ]);
@@ -68,6 +69,7 @@ app.post('/createproject', async(req, res) => {
   res.json({
     success: true,
     idNewAutora: resultsAutora.insertId,
+    idNewProyectos: resultsProyectos.insertId,
     message: "Se ha insertado correctamente",
   });
 
