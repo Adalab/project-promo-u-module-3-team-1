@@ -189,3 +189,22 @@ html {
     font-size: 1.8rem;
   }
 }
+.NotFoundImg{
+  width: 500px;
+  border-radius: 5rem;
+}
+.NotFoundTitle{
+  color: white;
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'catamaran';
+  text-align: center;
+  padding-bottom: 2rem;
+}
+.NotFoundDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
+}

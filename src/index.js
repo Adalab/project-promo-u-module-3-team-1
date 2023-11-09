@@ -71,6 +71,7 @@ app.post('/createproject', async(req, res) => {
     idNewAutora: resultsAutora.insertId,
     idNewProyectos: resultsProyectos.insertId,
     message: "Se ha insertado correctamente",
+    cardURL: `http://localhost:${port}/project/${resultsProyectos.insertId}`
   });
 
 });
