@@ -4,6 +4,18 @@
   padding-top: 50px;
   min-height: 100%;
   align-items: center;
+  justify-content: flex-start;
+
+  .divLanding{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3rem;
+  }
 
 
   @media all and (min-width: 1024px) {
@@ -13,42 +25,52 @@
   }
 
   .div_preview {
-    transform: translateY(-80%);
+    //transform: translateY(-80%);
     justify-content: center;
     display: flex;
-    margin: 1rem 0;
+    //margin: 1rem 0;
     
     @media all and (min-width: 1024px){
-    margin: 3rem 0;
+    //margin: 3rem 0;
   }
 
     
   }
 }
+.boxCoverPreview{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .preview {
   @include centerTotal;
   @media all and (min-width: 1024px) {
-    display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    //flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
   
   }
   &__cover {
     object-fit: cover;
-    width: 100%;
+    width: 90%;
+    border-radius: 2rem;
     height: 80vh;
   }
   &__autor {
+    min-height: 30rem;
+    width: 35rem;
     background-color: white;
     color: #3e3e3e;
-    width: 80.53%;
-    transform: translateY(-30%);
+    //transform: translateY(-30%);
     border-radius: 20px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-around;
-    @media all and (min-width: 1024px) {
+    @media all and (min-width: 768px) {
+      width: 55rem;
       @include textStyle($fontCatamaran, 500, 1rem, $warm-grey);
     }
 
@@ -65,9 +87,9 @@
         width: 11rem;
         background-color: $white;
 
-        @media all and (min-width: 1024px) {
+        @media all and (min-width: 768px) {
           font-size: 1rem;
-          transform: translateY(85%);
+          //transform: translateY(85%);
         }
       }
       .line {
@@ -87,7 +109,7 @@
         color: $black;
         margin-bottom: 1rem;
         text-align: left;
-        @media all and (min-width: 1024px) {
+        @media all and (min-width: 768px) {
           @include textStyle($fontPoppins, 500, 2.4rem, $black);
         }
       }
@@ -95,31 +117,32 @@
         font-size: 1.2rem;
         margin-bottom: 10px;
         text-align: left;
-        @media all and (min-width: 1024px) {
+        @media all and (min-width: 768px) {
           @include textStyle($fontPoppins, 500, 1.6rem, $warm-grey);
         }
       }
       .desc {
         
-        font-size: 0.8rem;
+        font-size: 1rem;
         margin-bottom: 1rem;
         overflow-y: auto;
         text-align: left;
-        @media all and (min-width: 1024px) {
+        @media all and (min-width: 768px) {
           @include textStyle($fontPoppins, 300, 1rem, $warm-grey);
         }
       }
       .technologies {
-        font-size: 1rem;
+        font-size: 1.5rem;
         width: 100%;
         text-align: left;
-        @media all and (min-width: 1024px) {
+        @media all and (min-width: 768px) {
           @include textStyle($fontCatamaran, 300, 1.2rem, $warm-grey);
         }
       }
     }
     .globe,
     .github {
+      font-size: 2rem;
       margin: 0.3rem;
       border-radius: 15px;
       box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
@@ -132,24 +155,25 @@
       text-align: center;
       margin: 0;
       padding: 2rem, 0.5rem;
+      border-radius: 50%;
+      width: 10rem;
       .image {
         margin-top: 3rem;
         padding: 2rem, 0.5rem;
-        width: 7rem;
-        //height: 7rem;
-        border-radius: 50%;
-        border: 1px solid grey;
+        width: 10rem;
+        border-radius: 2rem;
+        border: 3px solid rgb(17, 4, 135);
       }
       figcaption {
         .job {
           @include textStyle($fontCatamaran, 500, 1rem, $warm-grey);
-          @media all and (min-width: 1024px) {
+          @media all and (min-width: 768px) {
             font-size: 1.4rem;
           }
         }
         .name {
           @include textStyle($fontCatamaran, 700, 1.4rem, $black-80);
-          @media all and (min-width: 1024px) {
+          @media all and (min-width: 768px) {
             font-size: 1.8rem;
           }
         }

@@ -42,7 +42,7 @@ const CreatePage = ({
 
     return (
         <section className="preview">
-            <div>
+            <div className="boxCoverPreview">
                 <img className="image preview__cover" src={data.photo || (cover2)} alt="" />
                 <Preview data={data} />
             </div>

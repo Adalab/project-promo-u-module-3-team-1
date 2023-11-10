@@ -1,4 +1,3 @@
-import '../styles/layout/cardSmall.scss';
 import Preview from './Preview';
 import api from '../services/api';
 import { useEffect, useState } from 'react';
@@ -67,7 +66,7 @@ function Landing() {
     photo: 'photo',
   };
   return (
-    <section className="section_landing">
+    <>
       {listProject.map((project) => {
         return <Preview className="preview" data={project} />;
       })}
@@ -91,7 +90,7 @@ function Landing() {
         className="preview"
         data={dataPreview4}
       /> */}
-    </section>
+    </>
   );
 }
 

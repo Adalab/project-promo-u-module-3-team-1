@@ -141,7 +141,9 @@ function App() {
             element={
               <>
                 <ButtonRoute text="Nuevo Proyecto" route="/CreatePage" />
-                <Landing data={data} setData={setData} />
+                <div className="divLanding">
+                  <Landing data={data} setData={setData} />
+                </div>
               </>
             }
           />
