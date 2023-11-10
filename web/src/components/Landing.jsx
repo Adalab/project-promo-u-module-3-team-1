@@ -1,4 +1,4 @@
-import '../styles/layout/CardSmall.scss';
+import '../styles/layout/cardSmall.scss';
 import Preview from './Preview';
 import api from '../services/api';
 import { useEffect, useState } from 'react';
