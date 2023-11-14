@@ -39,7 +39,7 @@ html {
 .cover{
   width: 60%;
   border-radius: 2rem;
-  margin-top: 4rem;
+  margin-top: 6rem;
 
 }
 
@@ -72,7 +72,8 @@ html {
 .preview__autor {
   background-color: white;
   color: #3e3e3e;
-  width: 80.53%;
+  width: 60rem;
+  height: 30rem;
   border-radius: 20px;
   display: flex;
   font-size: 2rem;
@@ -84,6 +85,8 @@ html {
   color: #909090;
   @media all and (min-width: 1024px) {
     font-size: 3rem;
+    width: 120rem;
+    height: 50rem;
   }
 }
 
@@ -147,6 +150,7 @@ html {
   font-family: 'Poppins';
   color: #909090;
   font-weight: 300;
+  text-overflow: ellipsis;
   @media all and (min-width: 1024px) {
     font-size: 3rem;
   }
@@ -166,24 +170,39 @@ html {
 .globe,
 .github {
   margin: 0.3rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 15px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
   border: solid 1px #bcd1d8;
   color: #09312c;
   background-color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
+  text-decoration: none;}
+
+.globe:hover{
+  color: deeppink;
+  transform: scale(1.1);
+} 
+  
+.github:hover{
+    color:deeppink;
+    transform: scale(1.1);
 }
 .preview__autor--figure {
   text-align: center;
   margin: 0;
+  width: 10rem;
   padding: 2rem, 0.5rem;
+
 }
 .image {
   margin-top: 3rem;
   padding: 2rem, 0.5rem;
   width: 10rem;
+  height: 10rem;
   border-radius: 2rem;
   border: 3px solid rgb(9, 16, 72);
+  object-fit: cover;
 }
 .job {
   font-family: 'catamaran';
@@ -221,4 +240,22 @@ html {
   justify-content: center;
   align-items: center;
   margin: 3rem;
+}
+a{
+  text-decoration: none;  
+}
+.arrow{
+  width: 5rem;
+  position: absolute;
+  left: 1rem;
+  animation-name: backInRight;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+}
+
+.header{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 }

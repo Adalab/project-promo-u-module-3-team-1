@@ -157,10 +157,15 @@
       padding: 2rem, 0.5rem;
       border-radius: 50%;
       width: 10rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       .image {
         margin-top: 3rem;
-        padding: 2rem, 0.5rem;
+
         width: 10rem;
+        height: 10rem;
+        padding: 2rem, 0.5rem; 
         border-radius: 2rem;
         border: 3px solid rgb(17, 4, 135);
       }
