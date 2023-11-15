@@ -4,13 +4,14 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background: linear-gradient(to right, #0f0c29 0%, #302b63 100%);
+  background-image: url(../../images/fondo.jpg);
+  // background: linear-gradient(to right, #0f0c29 0%, #302b63 100%);
 }
 
 .container {
   min-height: 100%;
   width: 100%;
-  background-image: url('/fondo.jpg');
+  background-image: url('../fondo.jpg');
 }
 
 a,
