@@ -5,6 +5,7 @@ import GetAvatar from './GetAvatar';
 
 const CreatePage = ({
     data,
+    setData,
     error,
     cardUrl,
     errorUrl,
@@ -37,6 +38,18 @@ const CreatePage = ({
 
     const handleReset = () => {
         updateShowUrl(false);
+        setData({
+            name: '',
+            slogan: '',
+            repo: '',
+            demo: '',
+            technologies: '',
+            desc: '',
+            autor: '',
+            job: '',
+            image: '',
+            photo: ''
+        });
     };
 
 

@@ -96,18 +96,6 @@ function App() {
       setCardUrl(response);
       if (response !== undefined) {
         setShowUrl(true);
-        setData({
-          name: '',
-          slogan: '',
-          repo: '',
-          demo: '',
-          technologies: '',
-          desc: '',
-          autor: '',
-          job: '',
-          image: '',
-          photo: '',
-        });
         setError('');
         setErrorUrl('');
       } else {
@@ -155,6 +143,7 @@ function App() {
                 <ButtonRoute text="Ver Proyectos" route="/" />
                 <CreatePage
                   data={data}
+                  satData={setData}
                   error={error}
                   cardUrl={cardUrl}
                   errorUrl={errorUrl}

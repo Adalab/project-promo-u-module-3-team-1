@@ -4,11 +4,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  // background-image: url(../../images/fondo.jpg);
-  background-size: cover;
+  background-image: url(/fondo.jpg) !important;
+  background-size: cover !important;
   background-position: 100%;
   background-repeat: no-repeat;
-  // background: linear-gradient(to right, #0f0c29 0%, #302b63 100%);
+  background: linear-gradient(to right, #0f0c29 0%, #302b63 100%);
+}
+
+html{
+  cursor: url(../images/cursor.png), auto;
 }
 
 .container {

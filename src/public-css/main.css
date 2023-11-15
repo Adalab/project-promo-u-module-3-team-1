@@ -4,19 +4,29 @@ html {
   /* background-color: rgb(131, 93, 131); */
   background-image: url(../fondo.jpg);
   background-size: cover;
-  background-position: 100%;
-  /* min-height: 100vh; */
-  background-repeat: no-repeat;
+  background-position: 50%;
+  min-height: 100vh; 
+  background-repeat: repeat;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: url(/cursor.png), auto;
+
   @media all and (min-width: 1024px) {
     background-size: 100% 120%;
     
   }
+}
+
+.htmlNotFound{
+  background-image: url(../fondo.jpg);
+  background-size: 150% 200%;
+  background-position: 50%;
+  min-height: 100vh; 
+  background-repeat: repeat;
 }
 
 .main {
@@ -53,7 +63,7 @@ html {
   margin-top: 3rem;
   @media all and (min-width: 1024px) {
     width: 45%;
-    transform: translateY(-20%);
+    transform: translateY(-25%);
     margin-top: 0;
   }
 }

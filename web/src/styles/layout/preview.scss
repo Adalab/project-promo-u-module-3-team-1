@@ -145,6 +145,10 @@
       color: $dark;
       background-color: $white-50;
       text-decoration: none;
+      &:hover{
+        color: deeppink;
+        transform: scale(1.1);
+      }
     }
     &--figure {
       text-align: center;
@@ -157,7 +161,7 @@
       justify-content: center;
       .image {
         margin-top: 3rem;
-
+        object-fit: cover;
         width: 10rem;
         height: 10rem;
         padding: 2rem, 0.5rem;

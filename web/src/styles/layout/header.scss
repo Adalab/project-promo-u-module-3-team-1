@@ -33,9 +33,9 @@
         align-items: center;
         width: 100%;
         &--h1{
-            @include textStyle($fontMontserrat, 700, 2rem, $white);
+            @include textStyle('Grandstander', 700, 2rem, $white);
             @media all and (min-width: 1024px){
-                @include textStyle($fontMontserrat, 700, 4rem, $white);
+                @include textStyle('Grandstander', 700, 4rem, $white);
                 margin-bottom: 0.5rem;
             }
         }
