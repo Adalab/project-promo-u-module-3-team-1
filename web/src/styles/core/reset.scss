@@ -1,24 +1,18 @@
 :root {
   font-family: 'Montserrat', sans-serif;
   font-size: 62.5%;
-  background-color: rgb(78, 5, 127);
-  background-image: url('../public-css/fondo.jpg');
-  background-size: cover;
-  background-position: 40%;
-  min-height: 100vh;
-  background-repeat: no-repeat;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  @media all and (min-width: 1024px) {
-    background-size: 100% 120%;
-  }
+  background: linear-gradient(to right, #0f0c29 0%, #302b63 100%);
 }
 
 .container {
   min-height: 100%;
   width: 100%;
+  background-image: url('/fondo.jpg');
 }
+
 a,
 button {
   cursor: pointer;
