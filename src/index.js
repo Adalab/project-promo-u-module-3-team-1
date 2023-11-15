@@ -4,7 +4,7 @@ const mysql = require('mysql2/promise');
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '25mb' }));
-app.set ("view engine", "ejs");
+app.set('view engine', 'ejs');
 
 async function getConnection() {
   //crear y configurar la conexion
@@ -33,12 +33,13 @@ app.get('/authors/list', async (req, res) => {
   res.json(results);
 });
 
-
-app.post('/createproject', async(req, res) => {
-  console.log('crear projecto')
-    // 1. Hacer la query
-  const queryInsertAutora = 'INSERT INTO autora (autor, job, photo) VALUES (?, ?, ?); ';
-  const queryInsertProyectos = 'INSERT INTO proyectos (name, slogan, repo, demo, technologies, `desc`, image, fk_autora) VALUES (?, ?, ?, ?, ?, ?, ?, ?);' ;
+app.post('/createproject', async (req, res) => {
+  console.log('crear projecto');
+  // 1. Hacer la query
+  const queryInsertAutora =
+    'INSERT INTO autora (autor, job, photo) VALUES (?, ?, ?); ';
+  const queryInsertProyectos =
+    'INSERT INTO proyectos (name, slogan, repo, demo, technologies, `desc`, image, fk_autora) VALUES (?, ?, ?, ?, ?, ?, ?, ?);';
 
   // 2. Hacer la conexión
   const conn = await getConnection();
@@ -47,7 +48,7 @@ app.post('/createproject', async(req, res) => {
   const [resultsAutora] = await conn.query(queryInsertAutora, [
     req.body.autor,
     req.body.job,
-    req.body.photo
+    req.body.photo,
   ]);
 
   // 4. Ejecutar la query para la tabla proyectos
@@ -59,7 +60,7 @@ app.post('/createproject', async(req, res) => {
     req.body.technologies,
     req.body.desc,
     req.body.image,
-    resultsAutora.insertId
+    resultsAutora.insertId,
   ]);
 
   console.log(resultsAutora);
@@ -70,30 +71,30 @@ app.post('/createproject', async(req, res) => {
     success: true,
     idNewAutora: resultsAutora.insertId,
     idNewProyectos: resultsProyectos.insertId,
-    message: "Se ha insertado correctamente",
-    cardURL: `http://localhost:${port}/project/${resultsProyectos.insertId}`
+    message: 'Se ha insertado correctamente',
+    cardURL: `http://localhost:${port}/project/${resultsProyectos.insertId}`,
   });
-
 });
 
-app.get ('/project/:idProject', async (req, res) => {
-const id = req.params.idProject;
-const selectProject = 'SELECT * FROM autora, proyectos WHERE proyectos.fk_autora = autora.idAutora and idProject = ?;'
-const conn = await getConnection();
-const [results] = await conn.query(selectProject, [id]);
-console.log (results [0]);
-if(results.length === 0){
-res.render('notFound');
-}else {
-res.render('detailProject', results[0]);
-}
+app.get('/project/:idProject', async (req, res) => {
+  const id = req.params.idProject;
+  const selectProject =
+    'SELECT * FROM autora, proyectos WHERE proyectos.fk_autora = autora.idAutora and idProject = ?;';
+  const conn = await getConnection();
+  const [results] = await conn.query(selectProject, [id]);
+  console.log(results[0]);
+  if (results.length === 0) {
+    res.render('notFound');
+  } else {
+    res.render('detailProject', results[0]);
+  }
 });
 
-const staticServerPath = './web/dist/';
+const staticServerPath = './src/public-react';
 app.use(express.static(staticServerPath));
 
 const pathServerPublicStyles = './src/public-css';
 app.use(express.static(pathServerPublicStyles));
 
-const pathServerPublicImage = './src/public-image';
+const pathServerPublicImage = './src/public-react/assets';
 app.use(express.static(pathServerPublicImage));

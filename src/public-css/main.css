@@ -13,7 +13,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  @media all and (min-width: 1024px){
+  @media all and (min-width: 1024px) {
     background-size: 100% 120%;
   }
 }
@@ -29,26 +29,32 @@ html {
     justify-content: space-around;
   }
 }
-.body{
+.body {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.cover{
-  width: 80%;
+.cover {
+  width: 85%;
   border-radius: 2rem;
   margin-top: 6rem;
-
+  @media all and (min-width: 1024px) {
+    width: 60%;
+  }
 }
 
 .div_preview {
-  transform: translateY(-30%); 
-  justify-content: center;
   display: flex;
+  justify-content: center;
+  width: 80%;
   margin-top: 3rem;
-  width: 70%;
+  @media all and (min-width: 1024px) {
+    width: 45%;
+    transform: translateY(-20%);
+    margin-top: 0;
+  }
 }
 
 .preview {
@@ -57,7 +63,6 @@ html {
   align-items: center;
   text-align: center;
   @media all and (min-width: 1024px) {
-    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
   }
@@ -66,7 +71,6 @@ html {
 .preview__cover {
   object-fit: cover;
   width: 100%;
-  height: 80vh; 
 }
 
 .preview__autor {
@@ -82,7 +86,7 @@ html {
   font-weight: 500;
   color: #909090;
   @media all and (min-width: 1024px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -140,7 +144,7 @@ html {
 }
 .desc {
   height: 10rem;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   overflow-y: auto;
   text-align: left;
@@ -174,23 +178,23 @@ html {
   border: solid 1px #bcd1d8;
   color: #09312c;
   background-color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;}
+  text-decoration: none;
+}
 
-.globe:hover{
+.globe:hover {
   color: deeppink;
   transform: scale(1.1);
-} 
-  
-.github:hover{
-    color:deeppink;
-    transform: scale(1.1);
+}
+
+.github:hover {
+  color: deeppink;
+  transform: scale(1.1);
 }
 .preview__autor--figure {
   text-align: center;
   margin: 0;
   width: 10rem;
   padding: 2rem, 0.5rem;
-
 }
 .image {
   margin-top: 3rem;
@@ -200,7 +204,7 @@ html {
   border-radius: 2rem;
   border: 3px solid rgb(9, 16, 72);
   object-fit: cover;
-  @media all and (min-width: 768px){
+  @media all and (min-width: 768px) {
     width: 10rem;
     height: 10rem;
   }
@@ -223,11 +227,11 @@ html {
     font-size: 1.8rem;
   }
 }
-.NotFoundImg{
+.NotFoundImg {
   width: 500px;
   border-radius: 5rem;
 }
-.NotFoundTitle{
+.NotFoundTitle {
   color: white;
   font-size: 4rem;
   font-weight: 700;
@@ -235,17 +239,17 @@ html {
   text-align: center;
   padding-bottom: 2rem;
 }
-.NotFoundDiv{
+.NotFoundDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 3rem;
 }
-a{
-  text-decoration: none;  
+a {
+  text-decoration: none;
 }
-.arrow{
+.arrow {
   width: 5rem;
   position: absolute;
   left: 1rem;
@@ -254,8 +258,8 @@ a{
   animation-timing-function: ease-in-out;
 }
 
-.header{
-  display:flex;
+.header {
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;

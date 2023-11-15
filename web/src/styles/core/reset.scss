@@ -10,7 +10,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  @media all and (min-width: 1024px){
+  @media all and (min-width: 1024px) {
     background-size: 100% 120%;
   }
 }
@@ -22,4 +22,28 @@
 a,
 button {
   cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+.globe,
+.github {
+  margin: 0.3rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 1px #bcd1d8;
+  color: #09312c;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+.globe:hover {
+  color: deeppink;
+  transform: scale(1.1);
+}
+
+.github:hover {
+  color: deeppink;
+  transform: scale(1.1);
 }
