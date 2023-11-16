@@ -5,14 +5,15 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '25mb' }));
 app.set('view engine', 'ejs');
+require('dotenv').config();
 
 async function getConnection() {
   //crear y configurar la conexion
   const connection = await mysql.createConnection({
     host: 'sql.freedb.tech',
     user: 'freedb_admin project',
-    password: 'GpgBz?d5W9jbcGc',
-    database: 'freedb_proyectosMolones',
+    password: process.env.DBPASS,
+    database: 'freedb_proyectosMolones'
   });
   connection.connect();
   return connection;
